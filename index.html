@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="style.css" rel="stylesheet">
+    <link href="loading.css" rel="stylesheet">
+
+</head>
+<body>
+    <div id="minecraft-loader">
+        <div class="loader-content">
+            <div id="loading-percentage">0%</div>
+            <div class="dirt-square-outer">
+                <div class="dirt-square-inner" id="loading-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js" defer ></script>
+    <script src="type.js" defer ></script>
+
+   <div class="hero-image">
+        <!-- Calques pour le slide des images de fond -->
+        <div class="bg-layer active"></div>
+
+       <header>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#about">About me</a></li>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#">CV</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="hero-text">
+            <h1> Jonathan Morin</h1>
+            <p>Computer Sciences Student</p>
+        </div>
+
+        <a href="#arrow">
+        <img id="arrow" src="img/arrow.png">
+        </a>
+    </div>
+
+    <!-- Section About Me avec l'arrière-plan waterfall et son calque d'opacité -->
+    <main id="about">
+         <div class="about-bg"></div>
+
+         <h1 class="titres">Who am I ?</h1>
+        <p id="me">Hello, My name is Jonathan Morin and I am a Second-year BSc Computer Science student specializing in Data.
+I am eager to secure an internship where I can leverage my programming and analytical skills, 
+contribute to real-world projects, and grow alongside an innovative tech team.</p>
+
+         <div class="cases">
+            
+            <!-- COLONNE DE GAUCHE : Personal Information + Languages -->
+            <div class="left-column" style="display: flex; flex-direction: column; gap: 40px; flex: 1 1 calc(50% - 20px); min-width: 450px; max-width: 820px; z-index: 2;">
+                
+                <!-- Section Personal Information -->
+                <section class="skills-section" style="width: 100%; margin: 0;">
+                    <h2>Personnal Informations</h2>
+                    <div class="skills-container">
+                        
+                        <div class="skill-item">
+                            <img class="icon_information" src="img/birthday.png" alt="Birthday">
+                            <span class="skill-name">12 Oct 2007</span>
+                        </div>
+
+                        <div class="skill-item">
+                            <img class="icon_information" src="img/flag.png" alt="Nationality">
+                            <span class="skill-name">France</span>
+                        </div>
+
+                        <div class="skill-item">
+                            <img class="icon_information" src="img/address.png" alt="Address">
+                            <span class="skill-name copy-link" data-copy="7 rue Marie Thérèse Hermann, Annecy-Le-Vieux, France" style="cursor: pointer;" title="Cliquez pour copier">Annecy, France</span>
+                        </div>
+
+                        <div class="skill-item">
+                            <img class="icon_information" src="img/telephoner.png" alt="Phone">
+                            <span class="skill-name copy-link" data-copy="+33662340923" style="cursor: pointer;" title="Cliquez pour copier">+33662340923</span>
+                        </div>
+
+                        <div class="skill-item">
+                            <img class="icon_information" src="img/mail.png" alt="Email">
+                            <span class="skill-name copy-link" data-copy="Jonathan.morin1210@gmail.com" style="cursor: pointer;" title="Cliquez pour copier">Jonathan.morin1210@gmail.com</span>
+                        </div>
+
+                        <div class="skill-item">
+                            <img class="icon_information" src="img/linkedin.png" alt="LinkedIn">
+                            <a href="www.linkedin.com/in/jonathan-morin-4964b93aa" target="_blank" class="skill-name" style="text-decoration: none;" title="Voir le profil LinkedIn">Jonathan Morin</a>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- Section Languages juste en dessous -->
+                <section class="languages-section" style="width: 100%; margin: 0;">
+                    <h2>Languages</h2>
+                    <div class="languages-container">
+                        
+                        <table class="languages-table">
+                            <tr>
+                                <td class="language-info-cell">
+                                    <div class="language-item">
+                                        <img class="icon_information" src="img/france.png" alt="French">
+                                        <span>French</span>
+                                    </div>
+                                </td>
+                                <td class="language-level-cell">
+                                    Native Speaker
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="language-info-cell">
+                                    <div class="language-item">
+                                        <img class="icon_information" src="img/royaume-uni.png" alt="English">
+                                        <span>English</span>
+                                    </div>
+                                </td>
+                                <td class="language-level-cell">
+                                    B2 (Intermediate)
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="language-info-cell">
+                                    <div class="language-item">
+                                        <img class="icon_information" src="img/chine.png" alt="Mandarin">
+                                        <span>Mandarin</span>
+                                    </div>
+                                </td>
+                                <td class="language-level-cell">
+                                   A1 (Beginner)
+                                </td>
+                            </tr>
+                        </table>
+
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- COLONNE DE DROITE : Skills + Soft Skills -->
+            <div class="right-column" style="display: flex; flex-direction: column; gap: 40px; flex: 1 1 calc(50% - 20px); min-width: 450px; max-width: 820px; z-index: 2;">
+                
+                <!-- Section Skills -->
+                <section class="skills-section" style="width: 100%; margin: 0;">
+                    <h2>Skills</h2>
+                    <div class="skills-container">
+                        
+                        <table class="skills-table">
+                            <tr>
+                                <td class="skill-info-cell">
+                                    <span class="skill-category-title">Designing object-oriented applications</span>
+                                    <span class="skill-sub">C#, Java</span>
+                                </td>
+                                <td class="skill-bar-cell">
+                                    <div class="skill-bar">
+                                        <div class="skill-level skill-level-under" style="width: 100%;"></div>
+                                        <div class="skill-level" style="width: 85%;"></div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="skill-info-cell">
+                                    <span class="skill-category-title">Creating and communicating with a database</span>
+                                    <span class="skill-sub">Oracle, PostgreSQL, pandas</span>
+                                </td>
+                                <td class="skill-bar-cell">
+                                    <div class="skill-bar">
+                                        <div class="skill-level skill-level-under" style="width: 100%;"></div>
+                                        <div class="skill-level" style="width: 70%;"></div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="skill-info-cell">
+                                    <span class="skill-category-title">Designing dynamic webpage</span>
+                                    <span class="skill-sub">HTML, CSS, JavaScript, PHP</span>
+                                </td>
+                                <td class="skill-bar-cell">
+                                    <div class="skill-bar">
+                                        <div class="skill-level skill-level-under" style="width: 100%;"></div>
+                                        <div class="skill-level" style="width: 80%;"></div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="skill-info-cell">
+                                    <span class="skill-category-title">Visualizing datas and Business Intelligence</span>
+                                    <span class="skill-sub">Matplotlib, Power BI</span>
+                                </td>
+                                <td class="skill-bar-cell">
+                                    <div class="skill-bar">
+                                        <div class="skill-level skill-level-under" style="width: 100%;"></div>
+                                        <div class="skill-level" style="width: 60%;"></div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="skill-info-cell">
+                                    <span class="skill-category-title">Implementation of complex algorithms</span>
+                                    <span class="skill-sub">Python, NumPy</span>
+                                </td>
+                                <td class="skill-bar-cell">
+                                    <div class="skill-bar">
+                                        <div class="skill-level skill-level-under" style="width: 100%;"></div>
+                                        <div class="skill-level" style="width: 90%;"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </div>
+                </section>
+
+                <!-- Section Soft Skills -->
+                <section class="soft-skills-section" style="width: 100%; margin: 0;">
+                    <h2>Soft Skills</h2>
+                    <div class="skills-container">
+                        <div class="skills-table">
+                            <ul></ul>
+                            
+                            <li><div class="skill-item" style="padding: 6px 10px;">
+                                <span class="skill-name" style="font-size: 1.2rem; color: white;">I am precise and analytical </span><p></p>
+                            </div></li>
+                            
+                            <li><div class="skill-item" style="padding: 6px 10px;">
+                                <span class="skill-name" style="font-size: 1.2rem; color: white;">I am innovative, dynamic and confident.</span><p></p>
+                            </div></li>
+                            
+                            <li><div class="skill-item" style="padding: 6px 10px;">
+                                <span class="skill-name" style="font-size: 1.2rem; color: white;">I manage my time well and can concentrate on multiple projects at once.
+                                </span><p></p>
+                            </div></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+    </footer>
+</body>
+</html>

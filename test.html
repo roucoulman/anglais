@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Écran de chargement Minecraft</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Police pixelisée Minecraft */
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+        body {
+            font-family: 'Press Start 2P', monospace;
+            background-color: #222222;
+            color: #ffffff;
+            overflow: hidden;
+            user-select: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Texture de terre sombre classique de Minecraft (mosaïque de blocs) */
+        .mc-dirt-bg {
+            background-color: #2e2114;
+            background-image: 
+                radial-gradient(rgba(0,0,0,0.5) 15%, transparent 16%),
+                radial-gradient(rgba(255,255,255,0.03) 15%, transparent 16%);
+            background-size: 32px 32px;
+            background-position: 0 0, 16px 16px;
+            filter: brightness(0.5); /* Assombri comme l'écran de chargement original */
+        }
+
+        /* Style du carré de chargement rétro Minecraft */
+        .mc-square-outer {
+            width: 140px;
+            height: 140px;
+            background-color: #8b8b8b; /* Cadre gris extérieur */
+            border: 4px solid #373737;
+            box-shadow: inset 4px 4px #b5b5b5, inset -4px -4px #555555;
+            position: relative;
+            padding: 12px;
+            display: flex;
+            align-items: flex-end; /* Permet au remplissage de monter de bas en haut */
+            overflow: hidden;
+        }
+
+        /* Conteneur intérieur avec la bordure verte/bleue et fond blanc */
+        .mc-square-inner-track {
+            width: 100%;
+            height: 100%;
+            border: 4px solid #235d13; /* Bordure verte foncée typique */
+            box-shadow: inset 0 0 0 2px #55ff55; /* Liseré vert clair intérieur */
+            background-color: #3b3b3b;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Remplissage progressif blanc du bloc de bas en haut */
+        .mc-square-fill {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 0%; /* Évolution de 0% à 100% via JS */
+            background-color: #ffffff;
+            transition: height 0.05s linear;
+        }
+
+        /* Effet de transition pour masquer l'écran de chargement */
+        #loader-screen {
+            transition: opacity 0.6s ease;
+        }
+
+        .fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Ombre pour le texte du pourcentage */
+        .mc-text-shadow {
+            text-shadow: 2px 2px #000000;
+        }
+    </style>
+</head>
+<body class="h-screen w-screen relative">
+
+    <!-- ÉCRAN DE CHARGEMENT EXACTEMENT COMME SUR L'IMAGE -->
+    <div id="loader-screen" class="absolute inset-0 mc-dirt-bg flex flex-col items-center justify-center z-50">
+        <!-- Pourcentage au-dessus du carré -->
+        <div id="progress-percent" class="text-white text-base md:text-lg mb-4 mc-text-shadow tracking-widest">0%</div>
+
+        <!-- Carré de chargement Minecraft -->
+        <div class="mc-square-outer">
+            <div class="mc-square-inner-track">
+                <!-- Élément blanc qui monte de bas en haut -->
+                <div id="square-fill" class="mc-square-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAUX CONTENU PRINCIPAL DU SITE WEB (Affiché après chargement) -->
+    <div id="main-content" class="opacity-0 transition-opacity duration-1000 flex flex-col items-center justify-center h-screen w-screen bg-zinc-900 text-white p-6">
+        <div class="bg-zinc-800 border-2 border-zinc-600 p-8 max-w-lg w-full text-center shadow-2xl rounded-none">
+            <h1 class="text-sm md:text-xl text-yellow-400 mb-4" style="font-family: 'Press Start 2P', monospace;">Bienvenue sur le site !</h1>
+            <p class="text-xs text-zinc-300 leading-relaxed mb-6 font-sans">Le chargement style Minecraft s'est terminé avec succès. Vous pouvez maintenant naviguer sur la page principale.</p>
+            <button onclick="location.reload()" class="bg-zinc-700 hover:bg-zinc-600 text-yellow-300 px-6 py-3 text-xs border border-zinc-500 uppercase cursor-pointer" style="font-family: 'Press Start 2P', monospace;">Recharger le chargement</button>
+        </div>
+    </div>
+
+    <script>
+        // Simulation de la progression de 0% à 100%
+        let currentProgress = 0;
+        const percentText = document.getElementById('progress-percent');
+        const squareFill = document.getElementById('square-fill');
+        const loaderScreen = document.getElementById('loader-screen');
+        const mainContent = document.getElementById('main-content');
+
+        const loadingInterval = setInterval(() => {
+            // Incrémentation aléatoire pour simuler le chargement des chunks
+            currentProgress += Math.floor(Math.random() * 4) + 1;
+            
+            if (currentProgress >= 100) {
+                currentProgress = 100;
+                clearInterval(loadingInterval);
+
+                // Fin du chargement : mise à jour visuelle finale
+                percentText.innerText = "100%";
+                squareFill.style.height = "100%";
+
+                // Petite pause avant de basculer vers le site principal en fondu
+                setTimeout(() => {
+                    loaderScreen.classList.add('fade-out');
+                    mainContent.classList.remove('opacity-0');
+                }, 400);
+            }
+
+            // Mise à jour de l'affichage du pourcentage et de la hauteur du carré blanc
+            percentText.innerText = currentProgress + "%";
+            squareFill.style.height = currentProgress + "%";
+        }, 50); // Vitesse de chargement fluide
+    </script>
+</body>
+</html>
