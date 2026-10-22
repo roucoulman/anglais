@@ -184,8 +184,8 @@ main {
     gap: 30px;                
     flex-wrap: wrap;          
     width: 100%;
-    max-width: 1800px;        
-    padding: 0 20px;          
+    max-width: 100%;        
+    padding: 0 10px;          
     z-index: 2; 
 }
 
@@ -230,7 +230,7 @@ main {
 
 .skills-section h2 {
     text-align: center;
-    margin-bottom: 10px;      
+    margin-bottom: 20px;      
     font-size: 2rem;
 }
 
@@ -456,7 +456,7 @@ main {
     margin: 10px 0;           
     padding: 30px;            
     color: rgb(0, 0, 0);
-    background-color: rgb(5, 30, 43); /* Variante de ton vert/sombre */
+    background-color: rgb(1, 37, 1); /* Variante de ton vert/sombre */
     
     clip-path: polygon(
         0px 18px, 
@@ -503,9 +503,9 @@ main {
 
 #me {
     color: #ffffff;
-    max-width: 75%;
+    max-width: 60%;
     text-align: center;
-    font-size: 1.25rem;
+    font-size: 1.4rem;
     line-height: 1.8;
     margin: 0 auto 30px auto;
     padding: 20px 30px;
