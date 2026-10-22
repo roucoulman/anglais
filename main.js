@@ -36,9 +36,9 @@ window.addEventListener('load', () => {
                 loader.classList.add('loader-hidden');
 
                 // --- LANCEMENT DE LA MACHINE À ÉCRIRE ICI ---
-                const titre = document.querySelector("body"); 
-                if (typeof effetMachineAEcrire === 'function' && titre) {
-                    effetMachineAEcrire(titre, 50, 2000);
+                const body = document.querySelector("body"); 
+                if (typeof effetMachineAEcrire === 'function' && body) {
+                    effetMachineAEcrire(body);
                 }
 
             }, 300);
