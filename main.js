@@ -36,9 +36,9 @@ window.addEventListener('load', () => {
                 loader.classList.add('loader-hidden');
 
                 // --- LANCEMENT DE LA MACHINE À ÉCRIRE ICI ---
-                const titre = document.querySelector("body"); 
-                if (typeof effetMachineAEcrire === 'function' && titre) {
-                    effetMachineAEcrire(titre, 50, 2000);
+                const body = document.querySelector("body"); 
+                if (typeof effetMachineAEcrire === 'function' && body) {
+                    effetMachineAEcrire(body, 0, 2000);
                 }
 
             }, 300);
@@ -48,3 +48,31 @@ window.addEventListener('load', () => {
         fillBar.style.setProperty('--load-height', progress + '%');
     }, 40); 
 });
+
+
+//fonction recurvive de la mort
+
+function effetMachineAEcrire(balise, vitesse, pauseFin) {
+    // Si l'élément a du texte direct et qu'il n'est pas vide
+    if (balise.children.length === 0 && balise.innerText.trim() !== "") {
+        const texteComplet = balise.innerText;
+        balise.innerText = ""; // On vide pour commencer l'effet
+        let index = 0;
+
+        function etape() {
+            if (index <= texteComplet.length) {
+                balise.innerText = texteComplet.substring(0, index);
+                index++;
+                setTimeout(etape, vitesse);
+            } 
+        }
+
+        etape();
+        return;
+    }
+
+    // Sinon, on parcourt récursivement les enfants
+    for (let e of balise.children) {
+        effetMachineAEcrire(e, vitesse, pauseFin);
+    }
+}

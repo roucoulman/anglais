@@ -1,3 +1,5 @@
+//fonction recurvive de la mort
+
 function effetMachineAEcrire(balise, vitesse, pauseFin) {
     // Si l'élément a du texte direct et qu'il n'est pas vide
     if (balise.children.length === 0 && balise.innerText.trim() !== "") {
