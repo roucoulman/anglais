@@ -9,8 +9,9 @@
 </head>
 <body>
 
-    <script src="main.js" defer></script>
-    <script src="type.js" defer></script>
+
+    <script src="main.js" defer ></script>
+    <script src="type.js" defer ></script>
 
     <div class="hero-image" id="home">
         <div class="bg-layer active"></div>
@@ -46,7 +47,7 @@
         <div class="cases">
             
             <!-- COLONNE DE GAUCHE : Personal Information + Languages -->
-            <div class="left-column column-group">
+            <div class="left-column" style="display: flex; flex-direction: column; gap: 40px; flex: 1 1 calc(50% - 20px); min-width: 450px; max-width: 820px; z-index: 2;">
                 
                 <!-- Section Personal Information -->
                 <section class="skills-section sub-section">
@@ -79,13 +80,13 @@
 
                         <div class="skill-item">
                             <img class="icon_information" src="img/linkedin.png" alt="LinkedIn">
-                            <a href="https://www.linkedin.com/in/jonathan-morin-4964b93aa" target="_blank" class="skill-name external-link" title="Voir le profil LinkedIn">Jonathan Morin</a>
+                            <a href="https://www.linkedin.com/in/jonathan-morin-4964b93aa" target="_blank" class="skill-name external-link copy-link" title="Voir le profil LinkedIn">Jonathan Morin</a>
                         </div>
                     </div>
                 </section>
 
-                <!-- Section Languages -->
-                <section class="languages-section sub-section">
+                <!-- Section Languages juste en dessous -->
+                <section class="languages-section" style="width: 100%; margin: 0;">
                     <h2>Languages</h2>
                     <div class="languages-container">
                         <table class="languages-table">
@@ -123,10 +124,10 @@
             </div>
 
             <!-- COLONNE DE DROITE : Skills + Soft Skills -->
-            <div class="right-column column-group">
+            <div class="right-column" style="display: flex; flex-direction: column; gap: 40px; flex: 1 1 calc(50% - 20px); min-width: 450px; max-width: 820px; z-index: 2;">
                 
                 <!-- Section Skills -->
-                <section class="skills-section sub-section">
+                <section class="skills-section" style="width: 100%; margin: 0;">
                     <h2>Skills</h2>
                     <div class="skills-container">
                         <table class="skills-table">
@@ -195,18 +196,33 @@
                 </section>
 
                 <!-- Section Soft Skills -->
-                <section class="soft-skills-section sub-section">
+                <section class="soft-skills-section" style="width: 100%; margin: 0;">
                     <h2>Soft Skills</h2>
                     <div class="skills-container">
-                        <ul class="soft-skills-list">
-                            <li><div class="skill-item"><span class="skill-name">I am precise and analytical.</span></div></li>
-                            <li><div class="skill-item"><span class="skill-name">I am innovative, dynamic and confident.</span></div></li>
-                            <li><div class="skill-item"><span class="skill-name">I manage my time well and can concentrate on multiple projects at once.</span></div></li>
-                        </ul>
+                        <div class="skills-table">
+                            <ul></ul>
+                            
+                            <li><div class="skill-item" style="padding: 6px 10px;">
+                                <span class="skill-name" style="font-size: 1.2rem; color: white;">I am precise and analytical </span><p></p>
+                            </div></li>
+                            
+                            <li><div class="skill-item" style="padding: 6px 10px;">
+                                <span class="skill-name" style="font-size: 1.2rem; color: white;">I am innovative, dynamic and confident.</span><p></p>
+                            </div></li>
+                            
+                            <li><div class="skill-item" style="padding: 6px 10px;">
+                                <span class="skill-name" style="font-size: 1.2rem; color: white;">I manage my time well and can concentrate on multiple projects at once.
+                                </span><p></p>
+                            </div></li>
+
+                            </ul>
+                        </div>
                     </div>
                 </section>
 
             </div>
+
+         
 
         </div>
 
@@ -240,64 +256,59 @@
                     </div>
                 </section>
 
+                <section class="skills-section full-width-section" style="max-width: 100%;">
+                    <h2>Education</h2>
+                    <div class="skills-container education-container" style="display: flex; flex-direction: column; gap: 20px;">
+                        <div>
+                            <h3 class="education-title">BUT Informatique <span class="education-date">(2026 - 2027)</span></h3>
+                            <p class="experience-desc">Second year — Bachelor's Degree of Technology in Computer Science<br>University of Savoy / IUT Annecy, France</p>
+                        </div>
+                        <div>
+                            <h3 class="education-title">Baccalauréat Français <span class="education-date">(2022 - 2025)</span></h3>
+                            <p class="experience-desc">French Baccalaureate SSI with honors<br>Georges-Pompidou Highschool, Montpellier, France</p>
+                        </div>
+                    </div>
+                </section>
+
             </div>
         </div>
 
-        <!-- Section CV / Education, Hobbies & References -->
+        <!-- Section CV / Education & Hobbies -->
         <div id="cv" class="full-width-container">
-            <h1 class="titres">Education, Hobbies & References</h1>
-            <div class="cases project-cases">
+            <div class="cases project-cases" style="flex-direction: column; align-items: center;">
                 
-                <!-- Education & Hobbies -->
-                <div class="column-group">
-                    
-                    <section class="skills-section sub-section">
-                        <h2>Education</h2>
-                        <div class="skills-container education-container">
-                            <div>
-                                <h3 class="education-title">BUT Informatique <span class="education-date">(2026 - 2027)</span></h3>
-                                <p class="experience-desc">Second year — Bachelor's Degree of Technology in Computer Science<br>University of Savoy / IUT Annecy, France</p>
+                <!-- Education Section -->
+
+
+                <!-- Section Hobbies (Indépendante / à part) -->
+                <div class="hobbies-standalone">
+                    <h2>Hobbies</h2>
+                    <div class="hobbies-layout-container">
+                        
+
+                        <div class="hobby-carousel" id="carousel-right">
+                            <button class="carousel-btn prev-btn" aria-label="Précédent">&#10094;</button>
+                            <div class="carousel-images">
+                                <img src="img/mount.JPEG" alt="Hobby Photo 3" class="carousel-img active">
+                                <img src="img/saltlake.JPEG" alt="Hobby Photo 4" class="carousel-img">
+                                 <img src="img/waterfall.JPEG" alt="Hobby Photo 4" class="carousel-img">
                             </div>
-                            <div>
-                                <h3 class="education-title">Baccalauréat Français <span class="education-date">(2022 - 2025)</span></h3>
-                                <p class="experience-desc">French Baccalaureate SSI with honors<br>Georges-Pompidou Highschool, Montpellier, France</p>
-                            </div>
+                            <button class="carousel-btn next-btn" aria-label="Suivant">&#10095;</button>
                         </div>
-                    </section>
 
-                    <section class="languages-section sub-section">
-                        <h2>Hobbies</h2>
-                        <div class="skills-container">
-                            <ul class="hobbies-list">
-                                <li><strong class="hobbies-strong">Weightlifting:</strong> one year of independent practice and rigorous performance tracking.</li>
-                                <li><strong class="hobbies-strong">Running:</strong> two years of regular practice, including official races.</li>
-                                <li><strong class="hobbies-strong">Sewing:</strong> one year of independent practice with a brand currently in creation.</li>
-                            </ul>
+                        <div class="hobbies-text-content">
+                                <p>
+                                    Outside of my studies, I am passionate about physical endurance and creative design. <br>
+                                    I have been practicing weightlifting independently for a year with rigorous performance tracking, 
+                                    alongside two years of regular running, including official races.  <br>
+                                    Additionally, I have spent a year exploring sewing through independent practice while developing my own clothing brand, with a purpose 
+                                    of ecology with an upclying artistic direction. <br>
+                                    I am also Passionate about nature, travel and outdoor exploration, including hiking and trekking, with a lot of photo shooting ! 
+                                </p>
                         </div>
-                    </section>
 
-                </div>
 
-                <!-- References -->
-                <div class="column-group">
-                    
-                    <section class="skills-section sub-section reference-section">
-                        <h2>References</h2>
-                        <div class="skills-container experience-container">
-                            <div>
-                                <h3 class="education-title">Christophe Lin-Kwong-Chon</h3>
-                                <p class="experience-desc">Associate Professor in Data Exploitation, IUT Annecy, France</p>
-                                <p class="reference-mail"><a href="mailto:Christophe.lin-kwong-chon@univ-savoie.fr">Christophe.lin-kwong-chon@univ-savoie.fr</a></p>
-                            </div>
-
-                            <div>
-                                <h3 class="education-title">Bruno Rouchon</h3>
-                                <p class="experience-desc">Associate Professor in Databases, IUT Montpellier-Sète, France</p>
-                                <p class="reference-mail"><a href="mailto:Bruno.rouchon@umontpellier.fr">Bruno.rouchon@umontpellier.fr</a></p>
-                            </div>
-                        </div>
-                    </section>
-
+                    </div>
                 </div>
 
             </div>
@@ -305,7 +316,24 @@
 
     </main>
 
+    <!-- Footer contenant les Références -->
     <footer>
+        <div class="footer-container">
+            <h2 class="footer-title">References</h2>
+            <div class="footer-references">
+                <div class="reference-item">
+                    <h3 class="education-title">Christophe Lin-Kwong-Chon</h3>
+                    <p class="experience-desc">Associate Professor in Data Exploitation, IUT Annecy, France</p>
+                    <p class="reference-mail"><a href="mailto:Christophe.lin-kwong-chon@univ-savoie.fr">Christophe.lin-kwong-chon@univ-savoie.fr</a></p>
+                </div>
+
+                <div class="reference-item">
+                    <h3 class="education-title">Bruno Rouchon</h3>
+                    <p class="experience-desc">Associate Professor in Databases, IUT Montpellier-Sète, France</p>
+                    <p class="reference-mail"><a href="mailto:Bruno.rouchon@umontpellier.fr">Bruno.rouchon@umontpellier.fr</a></p>
+                </div>
+            </div>
+        </div>
     </footer>
 </body>
 </html>

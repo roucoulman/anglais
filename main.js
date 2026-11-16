@@ -8,45 +8,36 @@ arrow.addEventListener("click", () => {
 });
 
 document.querySelectorAll('.copy-link').forEach(item => {
+    // Sauvegarde le texte d'origine (ex: "Annecy, France" ou "Jonathan Morin")
+    const originalText = item.textContent.trim();
+
+    // Action au clic (copie)
     item.addEventListener('click', function() {
         const textToCopy = this.getAttribute('data-copy');
         
-        navigator.clipboard.writeText(textToCopy).then(() => {
-            alert('Copié dans le presse-papier : ' + textToCopy);
-        })
+        if (textToCopy) {
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                alert('Copié dans le presse-papier : ' + textToCopy);
+            });
+        }
     });
-});
 
-// --- GESTION DU CHARGEMENT MINECRAFT ---
-window.addEventListener('load', () => {
-    const loader = document.getElementById('minecraft-loader');
-    const percentageText = document.getElementById('loading-percentage');
-    const fillBar = document.getElementById('loading-fill');
-
-    let progress = 0;
-
-    const interval = setInterval(() => {
-        progress += Math.floor(Math.random() * 2) + 2; 
-        if (progress >= 100) {
-            progress = 100;
-            clearInterval(interval);
-
-            // Disparition de l'écran de chargement une fois à 100%
-            setTimeout(() => {
-                loader.classList.add('loader-hidden');
-
-                // --- LANCEMENT DE LA MACHINE À ÉCRIRE ICI ---
-                const body = document.querySelector("body"); 
-                if (typeof effetMachineAEcrire === 'function' && body) {
-                    effetMachineAEcrire(body, 0, 2000);
-                }
-
-            }, 300);
+    // Ajout du texte au survol avec condition
+    item.addEventListener('mouseover', function() {
+        let valeur = "     (cliquer pour copier)";
+        
+        // Si c'est Jonathan Morin, on change le message de survol
+        if (originalText === "Jonathan Morin") {
+            valeur = "    (cliquer pour accéder)";
         }
 
-        percentageText.textContent = progress + '%';
-        fillBar.style.setProperty('--load-height', progress + '%');
-    }, 40); 
+        item.textContent = originalText + valeur;
+    });
+
+    // Retrait du texte quand la souris s'en va
+    item.addEventListener('mouseout', function() {
+        item.textContent = originalText;
+    });
 });
 
 
@@ -76,3 +67,42 @@ function effetMachineAEcrire(balise, vitesse, pauseFin) {
         effetMachineAEcrire(e, vitesse, pauseFin);
     }
 }
+
+// --- GESTION DES CARROUSELS DE HOBBIES ---
+document.querySelectorAll('.hobby-carousel').forEach(carousel => {
+    const images = carousel.querySelectorAll('.carousel-img');
+    const prevBtn = carousel.querySelector('.prev-btn');
+    const nextBtn = carousel.querySelector('.next-btn');
+    let currentIndex = 0;
+
+    function showImage(index) {
+        images.forEach((img, i) => {
+            img.classList.toggle('active', i === index);
+        });
+    }
+
+    // Fonction pour passer à l'image suivante
+    function imageSuivante() {
+        currentIndex = (currentIndex + 1) % images.length;
+        showImage(currentIndex);
+    }
+
+    // Fonction pour passer à l'image précédente
+    function imagePrecedente() {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        showImage(currentIndex);
+    }
+
+    nextBtn.addEventListener('click', () => {
+        imageSuivante();
+    });
+
+    prevBtn.addEventListener('click', () => {
+        imagePrecedente();
+    });
+
+    // Défilement automatique toutes les secondes (1000 ms)
+    setInterval(() => {
+        imageSuivante();
+    }, 3000);
+});
