@@ -55,7 +55,7 @@ nav ul li a {
 }
 
 .hero-image {
-    background-image: url('img/mount.JPEG');
+    background-image: url('img/snow.JPEG');
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -97,7 +97,7 @@ nav ul li a {
 }
 
 .hero-image header nav ul li a:hover {
-    color: #ffcc00; 
+    color: #CC4200; 
     font-size: 35px;
 }
 
@@ -117,7 +117,7 @@ nav ul li a {
 
 .hero-text h1,
 .hero-text p {
-  color: #fffcf5;
+  color: #ffffff;
   opacity: 1;
   text-shadow: 6px 6px 6px rgba(0, 0, 0, 0.8);
 }
@@ -336,7 +336,7 @@ main {
 
 .skill-sub {
     font-size: 1rem;
-    color: #e7be07;
+    color: #e98f66;
     line-height: 1.1;
     white-space: nowrap;      
 }
@@ -382,7 +382,7 @@ main {
 }
 
 .skill-level:not(.skill-level-under) {
-    background-color: #c2b05f;
+    background-color: #ffffff;
     z-index: 2; 
 }
 
@@ -391,7 +391,7 @@ main {
 }
 
 .skill-level-under {
-    background-color: #8d5d0a; 
+    background-color: #CC4200; 
     z-index: 1;
 }
 
@@ -428,7 +428,7 @@ main {
     top: 5px;
     bottom: 5px;
     width: 3px;
-    background-color: #e7be07;
+    background-color: #CC4200;
 }
 
 .timeline-item {
@@ -447,14 +447,14 @@ main {
     width: 15px;
     height: 15px;
     border-radius: 50%;
-    background-color: #8d5d0a;
-    border: 3px solid #e7be07;
+    background-color: #ffffff;
+    border: 3px solid #CC4200;
     z-index: 3;
 }
 
 .experience-title,
 .education-title {
-    color: #e7be07;
+    color: #ffffff;
     font-size: 1.4rem;
 }
 
@@ -505,7 +505,7 @@ main {
 #me {
     color: white;
     max-width: 50%;
-    text-align: center;
+    text-align: justify;
     font-size: 1.5rem;
     line-height: 1.8;
     margin: 0 auto 30px auto;
@@ -631,12 +631,11 @@ footer {
 .footer-container {
     position: relative;
     overflow: hidden;
-    background-color: rgba(119, 94, 43, 0.95);
+    background-color: rgba(146, 116, 57, 0.95);
     color: white;
     backdrop-filter: blur(5px);
-    padding: 40px;
+    padding: 20px;
     border-radius: 6px;
-    border: 1px solid rgba(231, 190, 7, 0.3);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
@@ -658,10 +657,15 @@ footer {
     align-items: center;
     flex-wrap: wrap;
     gap: 70px;
-    text-align: center; /* Centre le texte à l'intérieur des références */
+    text-align: center;
+    padding-bottom: 20px; /* Centre le texte à l'intérieur des références */
 }
 
 .reference-item {
     flex: 0 1 550px; /* Empêche les blocs de s'étirer démesurément sur les grands écrans */
     text-align: center;
+}
+
+.timelines{
+    align-items: center;
 }
