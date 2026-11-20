@@ -15,7 +15,7 @@
 body, html {
     font-family: 'MinecraftBold', sans-serif;
     height: 100%;
-    background-color: #8a7f5d;
+    background-color: #65bbe2;
     scroll-behavior: smooth;
 }
 
@@ -66,7 +66,7 @@ nav ul li a {
 }
 
 .hero-image {
-    background-image: url('img/snow.JPEG');
+    background-image: url('img/photos/snow.JPEG');
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -231,7 +231,7 @@ main {
     content: "";
     position: absolute;
     inset: 0;
-    background-image: url('img/topo.jpg');
+    background-image: url('img/webIcon/topo.jpg');
     background-size: cover;
     background-position: center;
     opacity: 0.1;
@@ -622,6 +622,25 @@ main {
     color: #333;
 }
 
+.carousel-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 700px;
+    flex-shrink: 0;
+}
+
+.carousel-caption {
+    font-size: 1.2rem;
+    color: #ffffff;
+    background-color: rgba(4, 54, 8, 0.9);
+    padding: 8px 18px;
+    border-radius: 6px;
+    text-align: center;
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
 .prev-btn {
     left: 5px;
 }
@@ -641,7 +660,7 @@ footer {
 .footer-container {
     position: relative;
     overflow: hidden;
-    background-color: rgba(146, 116, 57, 0.95);
+    background-image: url("img/photos/ground.jpg");
     color: white;
     backdrop-filter: blur(5px);
     padding: 20px;
@@ -680,3 +699,4 @@ footer {
 .timelines{
     align-items: center;
 }
+
