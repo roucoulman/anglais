@@ -26,6 +26,17 @@ body, html {
     color: rgb(255, 255, 255);
 }
 
+/* Positionnement précis des titres lors du clic dans le header */
+#home {
+    scroll-margin-top: 0;
+}
+
+#about,
+#projects,
+#hobbies {
+    scroll-margin-top: 5vh;
+}
+
 nav {
     width: 80%;
     max-width: 1200px;
@@ -71,7 +82,7 @@ nav ul li a {
     transform: translateX(-50%); 
     width: 90%; 
     max-width: 1200px; 
-    padding: 15px 0;
+    padding: 0 0;
     background: rgba(255, 255, 255, 0.7); 
     backdrop-filter: blur(5px);
     z-index: 10;
@@ -177,7 +188,7 @@ main {
     color: white;
 }
 
-#about .titres {
+#about.titres {
     min-height: auto;
 }
 
@@ -558,8 +569,8 @@ main {
 
 .hobby-carousel {
     position: relative;
-    width: 400px;
-    height: 320px;
+    width: 700px;
+    height: 400px;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -620,7 +631,6 @@ main {
 }
 
 /* --- FOOTER / REFERENCES --- */
-/* --- FOOTER / REFERENCES --- */
 footer {
     width: 100%;
     margin: 60px auto 40px auto;
@@ -653,16 +663,17 @@ footer {
 
 .footer-references {
     display: flex;
-    justify-content: center; /* Centre les blocs horizontalement */
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     gap: 70px;
     text-align: center;
-    padding-bottom: 20px; /* Centre le texte à l'intérieur des références */
+    padding-bottom: 20px; 
+    font-size: 10px;
 }
 
 .reference-item {
-    flex: 0 1 550px; /* Empêche les blocs de s'étirer démesurément sur les grands écrans */
+    flex: 0 1 550px;
     text-align: center;
 }
 
