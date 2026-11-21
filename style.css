@@ -814,7 +814,7 @@ main {
 
 .hobby-carousel {
     position: relative;
-    width: 700px;
+    width: 600px;
     height: 400px;
     overflow: hidden;
     display: flex;
