@@ -5,13 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jonathan Morin - CV & Portfolio</title>
     <link href="style.css" rel="stylesheet">
-    <link href="altimeter.css" rel="stylesheet">
+
 </head>
 <body>
 
-    <script src="main.js" defer ></script>
-    <script src="type.js" defer ></script>
-    <script src="altimeter.js" defer ></script>
+    <script src="main.js" defer></script>
+    <script src="type.js" defer></script>
 
     <div class="hero-image" id="home">
         <div class="bg-layer active"></div>
@@ -50,7 +49,7 @@
             <div class="column-group">
                 
                 <!-- Section Personal Information -->
-                <section class="skills-section sub-section">
+                <section class="skills-section sub-section cloud-card">
                     <h2>Personal Information</h2>
                     <div class="skills-container">
                         <div class="skill-item">
@@ -86,7 +85,7 @@
                 </section>
 
                 <!-- Section Languages juste en dessous -->
-                <section class="languages-section sub-section">
+                <section class="languages-section sub-section cloud-card">
                     <h2>Languages</h2>
                     <div class="languages-container">
                         <table class="languages-table">
@@ -127,7 +126,7 @@
             <div class="column-group">
                 
                 <!-- Section Skills -->
-                <section class="skills-section sub-section">
+                <section class="skills-section sub-section cloud-card">
                     <h2>Skills</h2>
                     <div class="skills-container">
                         <table class="skills-table">
@@ -196,23 +195,23 @@
                 </section>
 
                 <!-- Section Soft Skills -->
-                <section class="soft-skills-section sub-section">
+                <section class="soft-skills-section sub-section cloud-card">
                     <h2>Soft Skills</h2>
                     <div class="skills-container">
                         <ul style="list-style: none; display: flex; flex-direction: column; gap: 15px;">
                             <li>
                                 <div class="skill-item" style="padding: 6px 10px;">
-                                    <span class="skill-name" style="font-size: 1.2rem; color: white;">I am precise and analytical</span>
+                                    <span class="skill-name" style="font-size: 1.2rem;">I am precise and analytical</span>
                                 </div>
                             </li>
                             <li>
                                 <div class="skill-item" style="padding: 6px 10px;">
-                                    <span class="skill-name" style="font-size: 1.2rem; color: white;">I am innovative, dynamic and confident.</span>
+                                    <span class="skill-name" style="font-size: 1.2rem;">I am innovative, dynamic and confident.</span>
                                 </div>
                             </li>
                             <li>
                                 <div class="skill-item" style="padding: 6px 10px;">
-                                    <span class="skill-name" style="font-size: 1.2rem; color: white;">I manage my time well and can concentrate on multiple projects at once.</span>
+                                    <span class="skill-name" style="font-size: 1.2rem;">I manage my time well and can concentrate on multiple projects at once.</span>
                                 </div>
                             </li>
                         </ul>
@@ -229,7 +228,7 @@
             <div class="cases project-cases">
                 
                 <!-- Professional & Academic Experiences -->
-                <section class="skills-section column-group">
+                <section class="skills-section column-group tree-card">
                     <h2>Professional & Academic Experiences</h2>
                     <div class="skills-container experience-container timeline-container">
                         
@@ -255,7 +254,7 @@
                 </section>
 
                 <!-- Education -->
-                <section class="skills-section column-group" style="height:400px">
+                <section class="skills-section column-group tree-card" style="height:400px">
                     <h2>Education</h2>
                     <div class="skills-container education-container timeline-container">
                         
@@ -319,16 +318,17 @@
 
     </main>
 
-    <!-- Footer contenant les Références -->
+<!-- Footer contenant les Références -->
     <footer>
         <div class="footer-container">
-            <h2 class="footer-title">References</h2>
             <div class="footer-references">
                 <div class="reference-item">
                     <h3 class="education-title">Christophe Lin-Kwong-Chon</h3>
                     <p class="experience-desc">Associate Professor in Data Exploitation <br> IUT Annecy, France</p>
                     <p class="reference-mail"><a href="mailto:Christophe.lin-kwong-chon@univ-savoie.fr">Christophe.lin-kwong-chon@univ-savoie.fr</a></p>
                 </div>
+
+                <h2 class="footer-title">References</h2>
 
                 <div class="reference-item">
                     <h3 class="education-title">Bruno Rouchon</h3>
@@ -337,6 +337,12 @@
                 </div>
             </div>
         </div>
+
+        <div class="footer-trees" id="footer-trees">
+            <img src="img/photos/tree_ascii.png" alt="" class="pixel-tree tree-1">
+            <img src="img/photos/tree_ascii.png" alt="" class="pixel-tree tree-2">
+        </div>
+        
     </footer>
 </body>
 </html>
