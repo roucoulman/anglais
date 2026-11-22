@@ -14,7 +14,8 @@ body {
     font-family: 'medium', sans-serif;
     min-height: 100vh;
     margin: 0;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("img/photos/mountain_ascii.png");
+    /* Voile plus doux et légèrement teinté pour réduire le contraste avec les cartes */
+    background-image: linear-gradient(rgba(12, 26, 36, 0.65), rgba(18, 32, 20, 0.72)), url("img/photos/mountain_ascii.png");
     background-size: 100% 100%;
     background-position: center top;
     background-repeat: no-repeat;
@@ -62,7 +63,7 @@ nav ul li a {
     font-family: 'medium', sans-serif;
     text-decoration: none;
     font-size: 1.2rem;
-    color: rgb(121, 75, 22);
+    color: rgb(255, 255, 255);
     transition: color 0.3s ease, font-size 0.3s ease;
     display: inline-block;    
 }
@@ -84,7 +85,7 @@ nav ul li a {
     width: 90%; 
     max-width: 1200px; 
     padding: 0 0;
-    background: rgba(255, 255, 255, 0.7); 
+    background: rgba(172, 169, 169, 0.7); 
     backdrop-filter: blur(5px);
     z-index: 10;
     display: flex;          
@@ -105,7 +106,7 @@ nav ul li a {
 
 .hero-image header nav ul li a {
     font-size: 35px;
-    color: rgb(107, 76, 30);
+    color: rgb(255, 255, 255);
 }
 
 .hero-image header nav ul li a:hover {
@@ -133,15 +134,15 @@ nav ul li a {
     text-shadow: 6px 6px 6px rgba(0, 0, 0, 0.8);
 }
 
-.hero-text h1 {
-    min-height: auto; 
-    margin-bottom: 0;
-}
-
 h1 {
     min-height: 2em;
     color: white;
     opacity: 1; 
+}
+
+.hero-text h1 {
+    min-height: auto; 
+    margin-bottom: 0;
 }
 
 #arrow {
@@ -161,7 +162,7 @@ main {
     align-items: center;  
     justify-content: flex-start; 
     width: 100%;
-    padding: 40px 0 10px 0; /* 10px en bas au lieu de 40px */
+    padding: 40px 0 10px 0;
     position: relative;
     overflow: hidden;
     z-index: 5;
@@ -184,7 +185,7 @@ main {
     text-align: center;
     position: relative;   
     margin-bottom: 10px;  
-    font-size: 3.8rem; /* au lieu de 3rem */
+    font-size: 3.8rem;
     z-index: 2; 
     color: white;
 }
@@ -270,7 +271,7 @@ main {
 .skills-section h2::before,
 .languages-section h2::before,
 .soft-skills-section h2::before,
-.hobbies-standalone h2::before {
+.hobbies-standalone > h2::before {
     content: "--[ ";
     opacity: 0.75;
 }
@@ -278,7 +279,7 @@ main {
 .skills-section h2::after,
 .languages-section h2::after,
 .soft-skills-section h2::after,
-.hobbies-standalone h2::after {
+.hobbies-standalone > h2::after {
     content: " ]--";
     opacity: 0.75;
 }
@@ -303,43 +304,24 @@ main {
         rgba(206, 229, 244, 0.83) 68%,
         rgba(176, 209, 230, 0.87) 100%
     );
-    /* Relief pixelisé haut lumineux / base ombrée */
     box-shadow:
         inset 0 6px 0 rgba(255, 255, 255, 0.65),
         inset 0 -8px 0 rgba(124, 196, 232, 0.45);
-    /* Silhouette de nuage en escalier pixel-art */
-    clip-path: polygon(
-        0px 36px, 6px 36px, 6px 24px, 18px 24px, 18px 18px,
-        18% 18px, 18% 10px, 22% 10px, 22% 6px,
-        36% 6px, 36% 0px, 64% 0px, 64% 6px,
-        78% 6px, 78% 10px, 82% 10px, 82% 18px,
-        calc(100% - 18px) 18px, calc(100% - 18px) 24px, calc(100% - 6px) 24px, calc(100% - 6px) 36px, 100% 36px,
-        100% calc(100% - 18px), calc(100% - 6px) calc(100% - 18px),
-        calc(100% - 6px) calc(100% - 6px), calc(100% - 18px) calc(100% - 6px),
-        calc(100% - 18px) 100%, 18px 100%, 18px calc(100% - 6px),
-        6px calc(100% - 6px), 6px calc(100% - 18px), 0px calc(100% - 18px)
-    );
+    font-family: monospace;
+    border: 2px dashed rgba(27, 77, 110, 0.35);
     filter: drop-shadow(0 10px 16px rgba(8, 55, 82, 0.22));
-    animation: floatCloud 6s ease-in-out infinite;
-}
-
-/* Décalage d'animation entre les deux colonnes */
-.column-group:nth-child(2) .cloud-card {
-    animation-delay: 1.5s;
+    animation: floatCloud 2s ease-in-out infinite;
 }
 
 .cloud-card:hover {
     animation-play-state: paused;
-    transform: scale(1.03) translateY(-4px);
 }
 
-/* Trame ASCII brume / nuage en filigrane */
 .cloud-card::before {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Ctext x='6' y='20' font-family='monospace' font-size='14' fill='%231b4d6e'%3E~ . %3A - %2B ~ . %3A%3C/text%3E%3Ctext x='6' y='44' font-family='monospace' font-size='14' fill='%231b4d6e'%3E. ~ - * %3A . ~ -%3C/text%3E%3Ctext x='6' y='68' font-family='monospace' font-size='14' fill='%231b4d6e'%3E* %3A . ~ %2B - %3A ~%3C/text%3E%3Ctext x='6' y='92' font-family='monospace' font-size='14' fill='%231b4d6e'%3E. - ~ . %3A * - .%3C/text%3E%3Ctext x='6' y='116' font-family='monospace' font-size='14' fill='%231b4d6e'%3E~ * . - %2B %3A . ~%3C/text%3E%3C/svg%3E");
-    opacity: 0.13;
+    opacity: 0.2;
 }
 
-/* Cadre intérieur ASCII ajusté sous le sommet du nuage */
 .cloud-card::after {
     inset: 30px 12px 12px 12px;
     border: 2px dashed rgba(27, 77, 110, 0.38);
@@ -367,7 +349,6 @@ main {
     color: #4a6b82 !important;
 }
 
-/* Barres de compétences en blocs ASCII */
 .cloud-card .skill-bar {
     background: rgba(27, 77, 110, 0.15);
     border: 1px solid rgba(27, 77, 110, 0.35);
@@ -405,7 +386,172 @@ main {
 }
 
 /* =========================================================
-   THÈME 2 : EFFET VERT ARBRE / FEUILLAGE (Projects & Education)
+   THÈME 2 : EFFET MONTAGNE / ROCHE & NEIGE (Projects)
+   ========================================================= */
+.summits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 32px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.mountain-card {
+    background: linear-gradient(
+        180deg,
+        rgba(75, 92, 112, 0.94) 0%,
+        rgba(42, 54, 70, 0.95) 38%,
+        rgba(24, 32, 44, 0.97) 100%
+    );
+    box-shadow: inset 0 8px 0 rgba(235, 245, 255, 0.85); /* Liseré neige au sommet */
+    filter: drop-shadow(0 12px 20px rgba(8, 16, 28, 0.45));
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 32px 28px 26px 28px;
+}
+
+/* Trame ASCII roche / sommet (/ \ ^ *) */
+.mountain-card::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Ctext x='6' y='20' font-family='monospace' font-size='14' fill='%23d8ecff'%3E/ %5C ^ * . / %5C ^%3C/text%3E%3Ctext x='6' y='44' font-family='monospace' font-size='14' fill='%23d8ecff'%3E^ * / %5C . %23 ^ *%3C/text%3E%3Ctext x='6' y='68' font-family='monospace' font-size='14' fill='%23d8ecff'%3E. / %5C %23 * ^ / %5C%3C/text%3E%3Ctext x='6' y='92' font-family='monospace' font-size='14' fill='%23d8ecff'%3E* ^ . / %5C %23 * ^%3C/text%3E%3Ctext x='6' y='116' font-family='monospace' font-size='14' fill='%23d8ecff'%3E/ %5C * ^ . %23 / %5C%3C/text%3E%3C/svg%3E");
+    opacity: 0.12;
+}
+
+.mountain-card::after {
+    border: 2px dashed rgba(173, 216, 255, 0.35);
+}
+
+.summit-ascii-peak {
+    font-family: monospace;
+    font-size: 0.9rem;
+    line-height: 1.1;
+    text-align: center;
+    color: #e8f4ff;
+    opacity: 0.85;
+    margin-bottom: 8px;
+    white-space: pre;
+}
+
+.summit-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: monospace;
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+}
+
+.summit-tag {
+    color: #93d5ff;
+    font-weight: bold;
+}
+
+.summit-alt {
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px dashed rgba(255, 255, 255, 0.45);
+    padding: 2px 10px;
+    color: #ffffff;
+}
+
+.mountain-card h2 {
+    color: #ffffff !important;
+    font-size: 1.7rem;
+    border-bottom: 2px dashed rgba(173, 216, 255, 0.35);
+    padding-bottom: 10px;
+    margin-bottom: 12px;
+}
+
+.summit-stats {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    font-family: monospace;
+    font-size: 0.98rem;
+    color: #b7dcf7;
+    margin-bottom: 14px;
+}
+
+.summit-desc {
+    font-size: 1.08rem;
+    line-height: 1.5;
+    color: #e6eef7;
+    margin-bottom: 18px;
+    flex-grow: 1;
+}
+
+.summit-gear {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.gear-badge {
+    font-family: monospace;
+    font-size: 0.95rem;
+    padding: 4px 10px;
+    background: rgba(18, 28, 40, 0.75);
+    border: 1px dashed rgba(147, 213, 255, 0.5);
+    color: #93d5ff;
+}
+
+.summit-link {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    font-family: monospace;
+    font-size: 1.1rem;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px dashed rgba(255, 255, 255, 0.4);
+    color: #ffffff;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.summit-link:hover {
+    background: #93d5ff;
+    color: #142230;
+    border-color: #93d5ff;
+}
+
+/* Bouton View All sous la grille des projets */
+.view-all-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 32px;
+    width: 100%;
+}
+
+.view-all-btn {
+    display: inline-block;
+    font-family: monospace;
+    font-size: 1.35rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #ffffff;
+    background: linear-gradient(180deg, rgba(75, 92, 112, 0.95) 0%, rgba(32, 42, 56, 0.98) 100%);
+    padding: 14px 36px;
+    border: 2px dashed rgba(147, 213, 255, 0.65);
+    clip-path: polygon(
+        0px 10px, 4px 10px, 4px 4px, 10px 4px, 10px 0px,
+        calc(100% - 10px) 0px, calc(100% - 10px) 4px, calc(100% - 4px) 4px, calc(100% - 4px) 10px,
+        100% 10px, 100% calc(100% - 10px), calc(100% - 4px) calc(100% - 10px),
+        calc(100% - 4px) calc(100% - 4px), calc(100% - 10px) calc(100% - 4px),
+        calc(100% - 10px) 100%, 10px 100%, 10px calc(100% - 4px),
+        4px calc(100% - 4px), 4px calc(100% - 10px), 0px calc(100% - 10px)
+    );
+    transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.view-all-btn:hover {
+    background: #93d5ff;
+    color: #142230;
+    border-color: #ffffff;
+    transform: translateY(-3px) scale(1.03);
+}
+
+/* =========================================================
+   THÈME 3 : EFFET VERT ARBRE / FEUILLAGE (Experiences & Education)
    ========================================================= */
 .tree-card {
     background: linear-gradient(180deg, rgba(46, 94, 30, 0.94) 0%, rgba(26, 58, 18, 0.96) 100%);
@@ -470,7 +616,7 @@ main {
     flex-direction: column;
     gap: 40px;
     flex: 1 1 calc(50% - 20px);
-    min-width: 450px;
+    min-width: 380px;
     max-width: 820px;
     z-index: 2;
 }
@@ -492,6 +638,24 @@ main {
 .project-cases {
     margin-top: 20px;
     align-items: center;
+}
+
+/* Parcours fusionné Experiences & Education */
+.timelines-section {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.timeline-type {
+    display: block;
+    font-family: monospace;
+    font-size: 0.95rem;
+    color: #a6e36b !important;
+    margin-bottom: 2px;
 }
 
 .full-width-section {
@@ -728,23 +892,25 @@ main {
 
 #me {
     color: white;
-    max-width: 50%;
+    max-width: 100%;
     text-align: justify;
-    font-size: 1.5rem;
-    line-height: 1.8;
-    margin: 10px auto 30px auto;
-    padding: 20px 30px;
+    font-family: monospace;
+    font-size: 1.4rem;
+    line-height: 1.7;
+    margin: 0 auto 30px auto;
+    padding: 20px 26px;
     z-index: 2;
     position: relative;
     opacity: 1;
-    border: 2px dashed rgba(255, 255, 255, 0.35);
+    border: 2px dashed rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.04);
 }
 
 .copy-link {
     cursor: pointer;
 }
 
-/* --- SECTION HOBBIES INDÉPENDANTE (À PART) --- */
+/* --- SYSTÈME DE CONTENEUR ENCADRÉ (WHO AM I, PROJECTS, EXPERIENCES, HOBBIES) --- */
 .hobbies-standalone {
     width: 100%;
     padding: 36px;
@@ -788,13 +954,22 @@ main {
     z-index: 2;
 }
 
-.hobbies-standalone h2 {
+.hobbies-standalone > h2 {
     text-align: center;
-    font-size: 3.8rem; /* au lieu de 2.8rem, pour s'aligner sur .titres */
+    font-size: 3.8rem;
     color: white;
     margin-bottom: 24px;
     border-bottom: 2px dashed rgba(255, 255, 255, 0.3);
     padding-bottom: 10px;
+}
+
+.hobbies-standalone .cases {
+    padding: 0;
+    width: 100%;
+}
+
+.hobbies-standalone .timeline-section {
+    max-width: 100%;
 }
 
 .hobbies-layout-container {
@@ -903,14 +1078,14 @@ main {
     right: 5px;
 }
 
-
 /* --- FOOTER / REFERENCES --- */
 footer {
     width: 100%;
-    margin: 40px auto 0 auto; /* 40px au lieu de 140px */
+    margin: 40px auto 0 auto;
     z-index: 2;
     position: relative;
 }
+
 .footer-container {
     position: relative;
     background: linear-gradient(180deg, rgba(48, 33, 14, 0.96) 0%, rgba(26, 17, 7, 0.98) 100%);
@@ -1058,15 +1233,18 @@ footer {
 }
 
 /* Placement et tailles des arbres */
-/* Placement et tailles des arbres */
 .tree-1 {
     left: 0%;
-    bottom: -150px;
+    bottom: -160px;
     width: 1400px;
 }
 
 .tree-2 {
     left: 40%;
-    bottom: -150px;
+    bottom: -160px;
     width: 1800px;
+}
+
+.timelines-section{
+    max-width: 1000px;
 }

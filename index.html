@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jonathan Morin - CV & Portfolio</title>
     <link href="style.css" rel="stylesheet">
-
 </head>
 <body>
 
@@ -36,253 +35,338 @@
         </a>
     </div>
 
-    <!-- Section About Me -->
+    <!-- Section principale -->
     <main>
         <div class="about-bg"></div>
 
-        <h1 id="about" class="titres">Who am I ?</h1>
-        <p id="me">Hello, my name is Jonathan Morin and I am a second-year BSc Computer Science student specializing in Data. I am eager to secure an internship where I can leverage my programming and analytical skills, contribute to real-world projects, and grow alongside an innovative tech team.</p>
+        <!-- SECTION 1 : ABOUT ME (WHO AM I ?) -->
+        <div class="full-width-container" style="align-items: center;">
+            <div class="cases project-cases" style="flex-direction: column; align-items: center;">
+                <div class="hobbies-standalone">
+                    <h2 id="about">Who am I ?</h2>
+                    
+                    <p id="me">Hello, my name is Jonathan Morin and I am a second-year BSc Computer Science student specializing in Data. I am eager to secure an internship where I can leverage my programming and analytical skills, contribute to real-world projects, and grow alongside an innovative tech team.</p>
 
-        <div class="cases">
-            
-            <!-- COLONNE DE GAUCHE : Personal Information + Languages -->
-            <div class="column-group">
-                
-                <!-- Section Personal Information -->
-                <section class="skills-section sub-section cloud-card">
-                    <h2>Personal Information</h2>
-                    <div class="skills-container">
-                        <div class="skill-item">
-                            <img class="icon_information" src="img/personnalIcon/birthday.png" alt="Birthday">
-                            <span class="skill-name">Oct. 12, 2007</span>
+                    <div class="cases">
+                        <!-- COLONNE DE GAUCHE : Personal Information + Languages -->
+                        <div class="column-group">
+                            
+                            <!-- Section Personal Information -->
+                            <section class="skills-section sub-section cloud-card">
+                                <h2>Personal Information</h2>
+                                <div class="skills-container">
+                                    <div class="skill-item">
+                                        <img class="icon_information" src="img/personnalIcon/birthday.png" alt="Birthday">
+                                        <span class="skill-name">Oct. 12, 2007</span>
+                                    </div>
+
+                                    <div class="skill-item">
+                                        <img class="icon_information" src="img/personnalIcon/flag.png" alt="Nationality">
+                                        <span class="skill-name">France</span>
+                                    </div>
+
+                                    <div class="skill-item">
+                                        <img class="icon_information" src="img/personnalIcon/address.png" alt="Address">
+                                        <span class="skill-name copy-link" data-copy="https://www.google.com/maps/place/Annecy/@45.8898728,6.0873039,12861m/data=!3m2!1e3!4b1!4m6!3m5!1s0x478b8ffa1c0551c9:0x42781681620534ba!8m2!3d45.899247!4d6.129384!16zL20vMDJqc3I5?entry=ttu&g_ep=EgoyMDI2MTExOC4xIKXMDSoASAFQAw%3D%3D" title="Cliquez pour copier">Annecy, France</span>
+                                    </div>
+
+                                    <div class="skill-item">
+                                        <img class="icon_information" src="img/personnalIcon/telephoner.png" alt="Phone">
+                                        <span class="skill-name copy-link" data-copy="+33662340923" title="Cliquez pour copier">+33 6 62 34 09 23</span>
+                                    </div>
+
+                                    <div class="skill-item">
+                                        <img class="icon_information" src="img/personnalIcon/mail.png" alt="Email">
+                                        <span class="skill-name copy-link" data-copy="jonathan.morin120@gmail.com" title="Cliquez pour copier">jonathan.morin120@gmail.com</span>
+                                    </div>
+
+                                    <div class="skill-item">
+                                        <img class="icon_information" src="img/personnalIcon/linkedin.png" alt="LinkedIn">
+                                        <a href="https://www.linkedin.com/in/jonathan-morin-4964b93aa" target="_blank" class="skill-name external-link copy-link" title="Voir le profil LinkedIn">Jonathan Morin</a>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- Section Languages juste en dessous -->
+                            <section class="languages-section sub-section cloud-card">
+                                <h2>Languages</h2>
+                                <div class="languages-container">
+                                    <table class="languages-table">
+                                        <tr>
+                                            <td class="language-info-cell">
+                                                <div class="language-item">
+                                                    <img class="icon_information" src="img/langues/france.png" alt="French">
+                                                    <span>French</span>
+                                                </div>
+                                            </td>
+                                            <td class="language-level-cell">Native Speaker</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="language-info-cell">
+                                                <div class="language-item">
+                                                    <img class="icon_information" src="img/langues/royaume-uni.png" alt="English">
+                                                    <span>English</span>
+                                                </div>
+                                            </td>
+                                            <td class="language-level-cell">B2 (Intermediate)</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="language-info-cell">
+                                                <div class="language-item">
+                                                    <img class="icon_information" src="img/langues/chine.png" alt="Mandarin">
+                                                    <span>Mandarin</span>
+                                                </div>
+                                            </td>
+                                            <td class="language-level-cell">A1 (Beginner)</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </section>
+
                         </div>
 
-                        <div class="skill-item">
-                            <img class="icon_information" src="img/personnalIcon/flag.png" alt="Nationality">
-                            <span class="skill-name">France</span>
-                        </div>
+                        <!-- COLONNE DE DROITE : Skills + Soft Skills -->
+                        <div class="column-group">
+                            
+                            <!-- Section Skills -->
+                            <section class="skills-section sub-section cloud-card">
+                                <h2>Skills</h2>
+                                <div class="skills-container">
+                                    <table class="skills-table">
+                                        <tr>
+                                            <td class="skill-info-cell">
+                                                <span class="skill-category-title">Designing object-oriented applications</span>
+                                                <span class="skill-sub">C#, Java</span>
+                                            </td>
+                                            <td class="skill-bar-cell">
+                                                <div class="skill-bar">
+                                                    <div class="skill-level skill-level-under" style="width: 100%;"></div>
+                                                    <div class="skill-level" style="width: 85%;"></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="skill-info-cell">
+                                                <span class="skill-category-title">Creating and communicating with a database</span>
+                                                <span class="skill-sub">Oracle, PostgreSQL, pandas</span>
+                                            </td>
+                                            <td class="skill-bar-cell">
+                                                <div class="skill-bar">
+                                                    <div class="skill-level skill-level-under" style="width: 100%;"></div>
+                                                    <div class="skill-level" style="width: 70%;"></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="skill-info-cell">
+                                                <span class="skill-category-title">Designing dynamic webpages</span>
+                                                <span class="skill-sub">HTML, CSS, JavaScript, PHP</span>
+                                            </td>
+                                            <td class="skill-bar-cell">
+                                                <div class="skill-bar">
+                                                    <div class="skill-level skill-level-under" style="width: 100%;"></div>
+                                                    <div class="skill-level" style="width: 80%;"></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="skill-info-cell">
+                                                <span class="skill-category-title">Visualizing data & Business Intelligence</span>
+                                                <span class="skill-sub">Matplotlib, Power BI</span>
+                                            </td>
+                                            <td class="skill-bar-cell">
+                                                <div class="skill-bar">
+                                                    <div class="skill-level skill-level-under" style="width: 100%;"></div>
+                                                    <div class="skill-level" style="width: 60%;"></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="skill-info-cell">
+                                                <span class="skill-category-title">Implementation of complex algorithms</span>
+                                                <span class="skill-sub">Python, NumPy</span>
+                                            </td>
+                                            <td class="skill-bar-cell">
+                                                <div class="skill-bar">
+                                                    <div class="skill-level skill-level-under" style="width: 100%;"></div>
+                                                    <div class="skill-level" style="width: 90%;"></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </section>
 
-                        <div class="skill-item">
-                            <img class="icon_information" src="img/personnalIcon/address.png" alt="Address">
-                            <span class="skill-name copy-link" data-copy="7 rue Marie Thérèse Hermann, Annecy-Le-Vieux, France" title="Cliquez pour copier">Annecy, France</span>
-                        </div>
+                            <!-- Section Soft Skills -->
+                            <section class="soft-skills-section sub-section cloud-card">
+                                <h2>Soft Skills</h2>
+                                <div class="skills-container">
+                                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 15px;">
+                                        <li>
+                                            <div class="skill-item" style="padding: 0px 10px;">
+                                                <span class="skill-name" style="font-size: 1.2rem;">I am precise and analytical</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="skill-item" style="padding: 0px 10px;">
+                                                <span class="skill-name" style="font-size: 1.2rem;">I am innovative, dynamic and confident.</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="skill-item" style="padding: 0px 10px;">
+                                                <span class="skill-name" style="font-size: 1.2rem;">I manage my time well and can concentrate on multiple projects at once.</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </section>
 
-                        <div class="skill-item">
-                            <img class="icon_information" src="img/personnalIcon/telephoner.png" alt="Phone">
-                            <span class="skill-name copy-link" data-copy="+33662340923" title="Cliquez pour copier">+33 6 62 34 09 23</span>
-                        </div>
-
-                        <div class="skill-item">
-                            <img class="icon_information" src="img/personnalIcon/mail.png" alt="Email">
-                            <span class="skill-name copy-link" data-copy="jonathan.morin120@gmail.com" title="Cliquez pour copier">jonathan.morin120@gmail.com</span>
-                        </div>
-
-                        <div class="skill-item">
-                            <img class="icon_information" src="img/personnalIcon/linkedin.png" alt="LinkedIn">
-                            <a href="https://www.linkedin.com/in/jonathan-morin-4964b93aa" target="_blank" class="skill-name external-link copy-link" title="Voir le profil LinkedIn">Jonathan Morin</a>
                         </div>
                     </div>
-                </section>
-
-                <!-- Section Languages juste en dessous -->
-                <section class="languages-section sub-section cloud-card">
-                    <h2>Languages</h2>
-                    <div class="languages-container">
-                        <table class="languages-table">
-                            <tr>
-                                <td class="language-info-cell">
-                                    <div class="language-item">
-                                        <img class="icon_information" src="img/langues/france.png" alt="French">
-                                        <span>French</span>
-                                    </div>
-                                </td>
-                                <td class="language-level-cell">Native Speaker</td>
-                            </tr>
-                            <tr>
-                                <td class="language-info-cell">
-                                    <div class="language-item">
-                                        <img class="icon_information" src="img/langues/royaume-uni.png" alt="English">
-                                        <span>English</span>
-                                    </div>
-                                </td>
-                                <td class="language-level-cell">B2 (Intermediate)</td>
-                            </tr>
-                            <tr>
-                                <td class="language-info-cell">
-                                    <div class="language-item">
-                                        <img class="icon_information" src="img/langues/chine.png" alt="Mandarin">
-                                        <span>Mandarin</span>
-                                    </div>
-                                </td>
-                                <td class="language-level-cell">A1 (Beginner)</td>
-                            </tr>
-                        </table>
-                    </div>
-                </section>
-
+                </div>
             </div>
-
-            <!-- COLONNE DE DROITE : Skills + Soft Skills -->
-            <div class="column-group">
-                
-                <!-- Section Skills -->
-                <section class="skills-section sub-section cloud-card">
-                    <h2>Skills</h2>
-                    <div class="skills-container">
-                        <table class="skills-table">
-                            <tr>
-                                <td class="skill-info-cell">
-                                    <span class="skill-category-title">Designing object-oriented applications</span>
-                                    <span class="skill-sub">C#, Java</span>
-                                </td>
-                                <td class="skill-bar-cell">
-                                    <div class="skill-bar">
-                                        <div class="skill-level skill-level-under" style="width: 100%;"></div>
-                                        <div class="skill-level" style="width: 85%;"></div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="skill-info-cell">
-                                    <span class="skill-category-title">Creating and communicating with a database</span>
-                                    <span class="skill-sub">Oracle, PostgreSQL, pandas</span>
-                                </td>
-                                <td class="skill-bar-cell">
-                                    <div class="skill-bar">
-                                        <div class="skill-level skill-level-under" style="width: 100%;"></div>
-                                        <div class="skill-level" style="width: 70%;"></div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="skill-info-cell">
-                                    <span class="skill-category-title">Designing dynamic webpages</span>
-                                    <span class="skill-sub">HTML, CSS, JavaScript, PHP</span>
-                                </td>
-                                <td class="skill-bar-cell">
-                                    <div class="skill-bar">
-                                        <div class="skill-level skill-level-under" style="width: 100%;"></div>
-                                        <div class="skill-level" style="width: 80%;"></div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="skill-info-cell">
-                                    <span class="skill-category-title">Visualizing data & Business Intelligence</span>
-                                    <span class="skill-sub">Matplotlib, Power BI</span>
-                                </td>
-                                <td class="skill-bar-cell">
-                                    <div class="skill-bar">
-                                        <div class="skill-level skill-level-under" style="width: 100%;"></div>
-                                        <div class="skill-level" style="width: 60%;"></div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="skill-info-cell">
-                                    <span class="skill-category-title">Implementation of complex algorithms</span>
-                                    <span class="skill-sub">Python, NumPy</span>
-                                </td>
-                                <td class="skill-bar-cell">
-                                    <div class="skill-bar">
-                                        <div class="skill-level skill-level-under" style="width: 100%;"></div>
-                                        <div class="skill-level" style="width: 90%;"></div>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </section>
-
-                <!-- Section Soft Skills -->
-                <section class="soft-skills-section sub-section cloud-card">
-                    <h2>Soft Skills</h2>
-                    <div class="skills-container">
-                        <ul style="list-style: none; display: flex; flex-direction: column; gap: 15px;">
-                            <li>
-                                <div class="skill-item" style="padding: 6px 10px;">
-                                    <span class="skill-name" style="font-size: 1.2rem;">I am precise and analytical</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="skill-item" style="padding: 6px 10px;">
-                                    <span class="skill-name" style="font-size: 1.2rem;">I am innovative, dynamic and confident.</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="skill-item" style="padding: 6px 10px;">
-                                    <span class="skill-name" style="font-size: 1.2rem;">I manage my time well and can concentrate on multiple projects at once.</span>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </section>
-
-            </div>
-
         </div>
 
-        <!-- Section Projects & Experiences (Côté à côte avec deux timelines) -->
+        <!-- SECTION 2 : PROJECTS (SOMMETS & ALTITUDE) -->
         <div class="full-width-container">
-            <h1 id="projects" class="titres">Projects & Experiences</h1>
-            <div class="cases project-cases">
-                
-                <!-- Professional & Academic Experiences -->
-                <section class="skills-section column-group tree-card">
-                    <h2>Professional & Academic Experiences</h2>
-                    <div class="skills-container experience-container timeline-container">
-                        
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <h3 class="experience-title">Website Conception, Annecy, France <span class="experience-date">(Oct 2026 - Jan 2027)</span></h3>
-                            <p class="experience-desc">Second-year university project: Developed an application within an Agile team, featuring a database and a cryptographic solution.</p>
-                        </div>
-
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <h3 class="experience-title">DataBase Conception, Montpellier, France <span class="experience-date">(Jan 2026 - Avril 2026)</span></h3>
-                            <p class="experience-desc">First-year university project: Design, management, administration and operation of a database for a fictional diving club.</p>
-                        </div>
-
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <h3 class="experience-title">INOGEN — Medical Company, Montpellier, France <span class="experience-date">(Jul - Aug 2023)</span></h3>
-                            <p class="experience-desc">Assembled components for respiratory devices (800-person company), tested hardware equipment, and conducted discussions with engineers.</p>
-                        </div>
-
-                    </div>
-                </section>
-
-                <!-- Education -->
-                <section class="skills-section column-group tree-card" style="height:400px">
-                    <h2>Education</h2>
-                    <div class="skills-container education-container timeline-container">
-                        
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <h3 class="education-title">BUT Informatique <span class="education-date">(2026 - 2027)</span></h3>
-                            <p class="experience-desc">Second year — Bachelor's Degree of Technology in Computer Science<br>
-                                specializing in data exploitation and administration<br>
-                                University of Savoy / IUT Annecy, France</p>
-                        </div>
-
-                       <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <h3 class="education-title">Baccalauréat Français <span class="education-date">(2022 - 2025)</span></h3>
-                            <p class="experience-desc">
-                                French Baccalaureate SSI with honors<br>
-                                Specializing in mathematics and computer science<br>
-                                Georges-Pompidou Highschool, Montpellier, France
+            <div class="cases project-cases" style="flex-direction: column; align-items: center;">
+                <div class="hobbies-standalone">
+                    <h2 id="projects">Projects</h2>
+                    
+                    <div class="summits-grid">
+                        <!-- SOMMET 1 -->
+                        <article class="skills-section mountain-card summit-card">
+                            <div class="summit-ascii-peak" aria-hidden="true">   /\   <br>  /  \  <br> / /\ \ </div>
+                            <div class="summit-meta">
+                                <span class="summit-tag">[ SUMMIT 01 ]</span>
+                                <span class="summit-alt">ALT. 2 150m</span>
+                            </div>
+                            <h2>the "ORB" </h2> 
+                            <div class="summit-stats">
+                                <span>•</span>
+                                <span>Status: ascension in progress</span>
+                            </div>
+                            <p class="summit-desc">
+                               Created a real-time trading algorithm integrated with technical indicator-based filtering.<br>
+                                Visualisation de statistiques sur matplotlib, optimisation des valeurs et hebergement sur serveur
                             </p>
-                        </div>
+                            <div class="summit-gear">
+                                <span class="gear-badge">Numpy</span>
+                                <span class="gear-badge">Panda</span>
+                                <span class="gear-badge">Python</span>
+                            </div>
+                            <a href="#" class="summit-link">--[ Inspect Summit -> ]--</a>
+                        </article>
 
+                        <!-- SOMMET 2 -->
+                        <article class="skills-section mountain-card summit-card">
+                            <div class="summit-ascii-peak" aria-hidden="true">    /\    <br>   /  \   <br>  / ** \  </div>
+                            <div class="summit-meta">
+                                <span class="summit-tag">[ SUMMIT 02 ]</span>
+                                <span class="summit-alt">ALT. 3 420m</span>
+                            </div>
+                            <h2>Charity's Database</h2>
+                            <div class="summit-stats">
+                                <span>•</span>
+                                <span>Status: Reached ✓</span>
+                            </div>
+                            <p class="summit-desc">
+                                > Data processing pipeline cleaning 500k+ GPS & gym performance logs to predict fatigue and progression curves.<br>
+                                > Interactive KPI dashboards built for weekly training insights.
+                            </p>
+                            <div class="summit-gear">
+                                <span class="gear-badge">Python</span>
+                                <span class="gear-badge">Pandas</span>
+                                <span class="gear-badge">NumPy</span>
+                                <span class="gear-badge">Power BI</span>
+                            </div>
+                            <a href="#" class="summit-link">--[ Inspect Summit -> ]--</a>
+                        </article>
+
+                       <!-- SOMMET 3 -->
+                        <article class="skills-section mountain-card summit-card">
+                            <div class="summit-ascii-peak" aria-hidden="true">   /\/\   <br>  /    \  <br> /_ ** _\ </div>
+                            <div class="summit-meta">
+                                <span class="summit-tag">[ SUMMIT 03 ]</span>
+                                <span class="summit-alt">ALT. 4 808m</span>
+                            </div>
+                            <h2>Website conception</h2>
+                            <div class="summit-stats">
+                                <span>•</span>
+                                <span>Status: Base Camp ⚑</span>
+                            </div>
+                            <p class="summit-desc">
+                                > Full-stack showcase and inventory manager for custom upcycled garments.<br>
+                                > Features textile traceability, dynamic filtering, and retro pixel-art UI.
+                            </p>
+                            <div class="summit-gear">
+                                <span class="gear-badge">HTML/CSS</span>
+                                <span class="gear-badge">JavaScript</span>
+                                <span class="gear-badge">PHP</span>
+                                <span class="gear-badge">SQL</span>
+                            </div>
+                            <a href="#" class="summit-link">--[ Inspect Summit -> ]--</a>
+                        </article>
                     </div>
-                </section>
 
+                    <!-- BOUTON VIEW ALL -->
+                    <div class="view-all-container">
+                        <a href="projects.html" class="view-all-btn">--[ View All Projects -> ]--</a>
+                    </div>
+
+                </div>
             </div>
         </div>
 
-        <!-- Section CV / Hobbies -->
+        <!-- SECTION 3 : EXPERIENCES & EDUCATION -->
+        <div class="full-width-container">
+            <div class="cases project-cases timelines-section" style="flex-direction: column; align-items: center;">
+                <div class="hobbies-standalone">
+                    <h2>Experiences & Education</h2>
+                    <div class="cases project-cases">
+                        
+                        <!-- Parcours fusionné : expériences et formation, par ordre chronologique -->
+                        <section class="skills-section tree-card timeline-section">
+                            <h2>Journey Log</h2>
+                            <div class="skills-container experience-container timeline-container">
+
+                                <div class="timeline-item">
+                                    <div class="timeline-dot"></div>
+                                    <span class="timeline-type">[ Formation ]</span>
+                                    <h3 class="experience-title">BUT Informatique <span class="experience-date">(2026 - 2027, en cours)</span></h3>
+                                    <p class="experience-desc">> Second year — Bachelor's Degree of Technology in Computer Science<br>
+                                        > specializing in data exploitation and administration<br>
+                                        > University of Savoy / IUT Annecy, France</p>
+                                </div>
+
+                                <div class="timeline-item">
+                                    <div class="timeline-dot"></div>
+                                    <span class="timeline-type">[ Formation ]</span>
+                                    <h3 class="experience-title">Baccalauréat Français <span class="experience-date">(2022 - 2025)</span></h3>
+                                    <p class="experience-desc">
+                                        > French Baccalaureate SSI with honors<br>
+                                        > Specializing in mathematics and computer science<br>
+                                        > Georges-Pompidou Highschool, Montpellier, France
+                                    </p>
+                                </div>
+
+                                <div class="timeline-item">
+                                    <div class="timeline-dot"></div>
+                                    <span class="timeline-type">[ Expérience ]</span>
+                                    <h3 class="experience-title">INOGEN — Medical Company, Montpellier, France <span class="experience-date">(Jul - Aug 2023)</span></h3>
+                                    <p class="experience-desc">> Assembled components for respiratory devices (800-person company), <br>
+                                        > tested hardware equipment, and conducted discussions with engineers.</p>
+                                </div>
+
+                            </div>
+                        </section>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 4 : HOBBIES -->
         <div id="cv" class="full-width-container">
             <div class="cases project-cases" style="flex-direction: column; align-items: center;">
                 
@@ -292,9 +376,9 @@
                         
                         <div class="carousel-wrapper">
                             <div class="hobby-carousel" id="carousel-right">
-                                <button class="carousel-btn prev-btn" aria-label="Précédent">&#10094;</button>
+                                <button class="carousel-btn prev-btn" aria-label="Précédent"><</button>
                                 <div class="carousel-images" id="carousel-container"></div>
-                                <button class="carousel-btn next-btn" aria-label="Suivant">&#10095;</button>
+                                <button class="carousel-btn next-btn" aria-label="Suivant">></button>
                             </div>
                             <p id="carousel-caption" class="carousel-caption"></p>
                         </div>
@@ -318,7 +402,7 @@
 
     </main>
 
-<!-- Footer contenant les Références -->
+    <!-- Footer contenant les Références -->
     <footer>
         <div class="footer-container">
             <div class="footer-references">
