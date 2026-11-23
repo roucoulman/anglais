@@ -1,8 +1,18 @@
+/* =========================================================
+   1. POLICES & STYLES DE BASE
+   ========================================================= */
 @font-face {
-  font-family: 'medium';
-  src: url('font/medium.ttf') format('woff');
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'medium';
+    src: url('font/medium.ttf') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: rgb(255, 255, 255);
 }
 
 html {
@@ -14,7 +24,6 @@ body {
     font-family: 'medium', sans-serif;
     min-height: 100vh;
     margin: 0;
-    /* Voile plus doux et légèrement teinté pour réduire le contraste avec les cartes */
     background-image: linear-gradient(rgba(12, 26, 36, 0.65), rgba(18, 32, 20, 0.72)), url("img/photos/mountain_ascii.png");
     background-size: 100% 100%;
     background-position: center top;
@@ -22,14 +31,6 @@ body {
     image-rendering: pixelated;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    color: rgb(255, 255, 255);
-}
-
-/* Positionnement précis des titres lors du clic dans le header */
 #home {
     scroll-margin-top: 0;
 }
@@ -40,23 +41,39 @@ body {
     scroll-margin-top: 5vh;
 }
 
+.icon_information {
+    width: 30px;
+    height: auto;
+}
+
+.external-link {
+    text-decoration: none;
+}
+
+.copy-link {
+    cursor: pointer;
+}
+
+/* =========================================================
+   2. HEADER & HERO SECTION
+   ========================================================= */
 nav {
     width: 80%;
     max-width: 1200px;
 }
 
 nav ul {
-    display: flex;            
-    justify-content: center;  
+    display: flex;
+    justify-content: center;
     align-items: center;
-    list-style-type: none;    
+    list-style-type: none;
     width: 100%;
 }
 
 nav ul li {
-    flex: 1;                  
-    text-align: center;       
-    min-height: 1.5em;      
+    flex: 1;
+    text-align: center;
+    min-height: 1.5em;
 }
 
 nav ul li a {
@@ -65,7 +82,7 @@ nav ul li a {
     font-size: 1.2rem;
     color: rgb(255, 255, 255);
     transition: color 0.3s ease, font-size 0.3s ease;
-    display: inline-block;    
+    display: inline-block;
 }
 
 .hero-image {
@@ -79,23 +96,23 @@ nav ul li a {
 
 .hero-image header {
     position: fixed;
-    top: 0; 
+    top: 0;
     left: 50%;
-    transform: translateX(-50%); 
-    width: 90%; 
-    max-width: 1200px; 
-    padding: 0 0;
-    background: rgba(172, 169, 169, 0.7); 
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1200px;
+    padding: 0;
+    background: rgba(172, 169, 169, 0.7);
     backdrop-filter: blur(5px);
     z-index: 10;
-    display: flex;          
-    justify-content: center;   
+    display: flex;
+    justify-content: center;
     clip-path: polygon(
-        0px 0px, 100% 0px, 
-        100% calc(100% - 18px), calc(100% - 6px) calc(100% - 18px), 
-        calc(100% - 6px) calc(100% - 6px), calc(100% - 18px) calc(100% - 6px), 
-        calc(100% - 18px) 100%, 18px 100%, 
-        18px calc(100% - 6px), 6px calc(100% - 6px), 
+        0px 0px, 100% 0px,
+        100% calc(100% - 18px), calc(100% - 6px) calc(100% - 18px),
+        calc(100% - 6px) calc(100% - 6px), calc(100% - 18px) calc(100% - 6px),
+        calc(100% - 18px) 100%, 18px 100%,
+        18px calc(100% - 6px), 6px calc(100% - 6px),
         6px calc(100% - 18px), 0px calc(100% - 18px)
     );
 }
@@ -110,7 +127,7 @@ nav ul li a {
 }
 
 .hero-image header nav ul li a:hover {
-    color: #CC4200; 
+    color: #CC4200;
     font-size: 35px;
 }
 
@@ -137,30 +154,32 @@ nav ul li a {
 h1 {
     min-height: 2em;
     color: white;
-    opacity: 1; 
+    opacity: 1;
 }
 
 .hero-text h1 {
-    min-height: auto; 
+    min-height: auto;
     margin-bottom: 0;
 }
 
 #arrow {
     position: absolute;
-    bottom: 20px;          
-    left: 50%;             
-    transform: translateX(-50%); 
-    width: 40px;           
-    height: auto;          
-    z-index: 10;           
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: auto;
+    z-index: 10;
 }
 
-/* Structure principale */
+/* =========================================================
+   3. STRUCTURE GLOBALE & CONTENEURS PRINCIPAUX
+   ========================================================= */
 main {
     display: flex;
     flex-direction: column;
-    align-items: center;  
-    justify-content: flex-start; 
+    align-items: center;
+    justify-content: flex-start;
     width: 100%;
     padding: 40px 0 10px 0;
     position: relative;
@@ -170,23 +189,23 @@ main {
 
 .about-bg {
     position: absolute;
-    top: -300px; 
+    top: -300px;
     left: 0;
     width: 100%;
-    height: calc(100% + 400px); 
+    height: calc(100% + 400px);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     opacity: 0;
-    z-index: 1;   
+    z-index: 1;
 }
 
 .titres {
     text-align: center;
-    position: relative;   
-    margin-bottom: 10px;  
+    position: relative;
+    margin-bottom: 10px;
     font-size: 3.8rem;
-    z-index: 2; 
+    z-index: 2;
     color: white;
 }
 
@@ -194,19 +213,124 @@ main {
     min-height: auto;
 }
 
-.cases {
-    display: flex;            
-    justify-content: center;  
-    align-items: stretch;  
-    gap: 40px;                
-    flex-wrap: wrap;          
+.full-width-container {
     width: 100%;
-    max-width: 1700px;        
-    padding: 0 20px;          
-    z-index: 2; 
+    max-width: 1700px;
+    margin-top: 60px;
+    padding: 0 20px;
+    z-index: 2;
+    align-items: center;
 }
 
-/* --- FACTORISATION DES SECTIONS (SKILLS, LANGUAGES, SOFT SKILLS) --- */
+.cases {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 40px;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1700px;
+    padding: 0 20px;
+    z-index: 2;
+}
+
+.project-cases {
+    margin-top: 20px;
+    align-items: center;
+}
+
+.column-group {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    flex: 1 1 calc(50% - 20px);
+    min-width: 380px;
+    max-width: 820px;
+    z-index: 2;
+}
+
+.sub-section {
+    width: 100%;
+    margin: 0;
+}
+
+.full-width-section {
+    flex: 1 1 100%;
+    max-width: 100%;
+}
+
+/* Grands cadres de sections (Who am I, Projects, Experiences, Hobbies) */
+.hobbies-standalone {
+    width: 100%;
+    padding: 36px;
+    margin-top: 30px;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    clip-path: polygon(
+        0px 18px, 6px 18px, 6px 6px, 18px 6px, 18px 0px,
+        calc(100% - 18px) 0px, calc(100% - 18px) 6px, calc(100% - 6px) 6px, calc(100% - 6px) 18px,
+        100% 18px, 100% calc(100% - 18px), calc(100% - 6px) calc(100% - 18px),
+        calc(100% - 6px) calc(100% - 6px), calc(100% - 18px) calc(100% - 6px),
+        calc(100% - 18px) 100%, 18px 100%, 18px calc(100% - 6px),
+        6px calc(100% - 6px), 6px calc(100% - 18px), 0px calc(100% - 18px)
+    );
+}
+
+.hobbies-standalone::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Ctext x='6' y='20' font-family='monospace' font-size='14' fill='%23ffffff'%3E~ - %3D %2B * %3A . ~%3C/text%3E%3Ctext x='6' y='44' font-family='monospace' font-size='14' fill='%23ffffff'%3E. ~ %2B - * %3D %3A .%3C/text%3E%3Ctext x='6' y='68' font-family='monospace' font-size='14' fill='%23ffffff'%3E%3D . ~ * %2B - %3A ~%3C/text%3E%3Ctext x='6' y='92' font-family='monospace' font-size='14' fill='%23ffffff'%3E* %3A - . %3D ~ %2B .%3C/text%3E%3Ctext x='6' y='116' font-family='monospace' font-size='14' fill='%23ffffff'%3E%2B ~ . %3A - * %3D %3A%3C/text%3E%3C/svg%3E");
+    background-size: 120px 120px;
+    background-repeat: repeat;
+    opacity: 0.08;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.hobbies-standalone::after {
+    content: "";
+    position: absolute;
+    inset: 10px;
+    border: 2px dashed rgba(255, 255, 255, 0.3);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.hobbies-standalone > * {
+    position: relative;
+    z-index: 2;
+}
+
+.hobbies-standalone > h2 {
+    text-align: center;
+    font-size: 3.8rem;
+    color: white;
+    margin-bottom: 24px;
+    border-bottom: 2px dashed rgba(255, 255, 255, 0.3);
+    padding-bottom: 10px;
+}
+
+.hobbies-standalone .cases {
+    padding: 0;
+    width: 100%;
+}
+
+/* =========================================================
+   4. BASE COMMUNE DES CARTES ASCII
+   ========================================================= */
+.skills-section,
+.languages-section {
+    min-height: 250px;
+    padding: 32px;
+}
+
+.soft-skills-section {
+    min-height: 200px;
+    padding: 32px;
+}
+
 .skills-section,
 .languages-section,
 .soft-skills-section {
@@ -216,17 +340,16 @@ main {
     color: rgb(197, 197, 197);
     backdrop-filter: blur(5px);
     clip-path: polygon(
-        0px 18px, 6px 18px, 6px 6px, 18px 6px, 18px 0px, 
-        calc(100% - 18px) 0px, calc(100% - 18px) 6px, calc(100% - 6px) 6px, calc(100% - 6px) 18px, 
-        100% 18px, 100% calc(100% - 18px), calc(100% - 6px) calc(100% - 18px), 
-        calc(100% - 6px) calc(100% - 6px), calc(100% - 18px) calc(100% - 6px), 
-        calc(100% - 18px) 100%, 18px 100%, 18px calc(100% - 6px), 
+        0px 18px, 6px 18px, 6px 6px, 18px 6px, 18px 0px,
+        calc(100% - 18px) 0px, calc(100% - 18px) 6px, calc(100% - 6px) 6px, calc(100% - 6px) 18px,
+        100% 18px, 100% calc(100% - 18px), calc(100% - 6px) calc(100% - 18px),
+        calc(100% - 6px) calc(100% - 6px), calc(100% - 18px) calc(100% - 6px),
+        calc(100% - 18px) 100%, 18px 100%, 18px calc(100% - 6px),
         6px calc(100% - 6px), 6px calc(100% - 18px), 0px calc(100% - 18px)
     );
-    transition: transform 0.3s ease-in-out; 
+    transition: transform 0.3s ease-in-out;
 }
 
-/* Trame de caractères ASCII en filigrane */
 .skills-section::before,
 .languages-section::before,
 .soft-skills-section::before {
@@ -241,7 +364,6 @@ main {
     pointer-events: none;
 }
 
-/* Cadre intérieur pointillé façon boîte ASCII */
 .skills-section::after,
 .languages-section::after,
 .soft-skills-section::after {
@@ -267,7 +389,15 @@ main {
     transform: scale(1.03);
 }
 
-/* Balises ASCII autour des titres d'articles */
+.skills-section h2,
+.languages-section h2,
+.soft-skills-section h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 1.85rem;
+    color: white;
+}
+
 .skills-section h2::before,
 .languages-section h2::before,
 .soft-skills-section h2::before,
@@ -285,8 +415,24 @@ main {
 }
 
 /* =========================================================
-   THÈME 1 : EFFET NUAGE (Section About Me) - Couleurs d'origine
+   5. SECTION ABOUT ME (BIO + THÈME NUAGE)
    ========================================================= */
+#me {
+    color: white;
+    max-width: 100%;
+    text-align: justify;
+    font-family: monospace;
+    font-size: 1.4rem;
+    line-height: 1.7;
+    margin: 0 auto 30px auto;
+    padding: 20px 26px;
+    z-index: 2;
+    position: relative;
+    opacity: 1;
+    border: 2px dashed rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.04);
+}
+
 @keyframes floatCloud {
     0%, 100% {
         transform: translateY(0px);
@@ -349,14 +495,105 @@ main {
     color: #4a6b82 !important;
 }
 
+.skills-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.skills-table,
+.languages-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 8px;
+}
+
+.skills-table td,
+.languages-table td {
+    padding: 6px 10px;
+    vertical-align: middle;
+    color: white;
+}
+
+.languages-table td {
+    font-size: 1.4rem;
+}
+
+.skill-info-cell {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.skill-category-title {
+    font-size: 1.2rem;
+    color: white;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+.skill-sub {
+    font-size: 1rem;
+    color: #e98f66;
+    line-height: 1.1;
+    white-space: nowrap;
+}
+
+.skill-bar-cell {
+    width: 25%;
+}
+
+.skill-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px;
+}
+
+.skill-name {
+    width: auto;
+    font-size: 1.2rem;
+    color: white;
+}
+
+.skill-bar {
+    width: 100%;
+    height: 16px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 0;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
 .cloud-card .skill-bar {
     background: rgba(27, 77, 110, 0.15);
     border: 1px solid rgba(27, 77, 110, 0.35);
     border-radius: 0;
 }
 
-.cloud-card .skill-level {
+.skill-level {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
     border-radius: 0;
+    transition: width 0.3s ease-in-out;
+}
+
+.skill-level:not(.skill-level-under) {
+    background-color: #ffffff;
+    z-index: 2;
+}
+
+.skill-bar:hover .skill-level:not(.skill-level-under) {
+    width: 100% !important;
+}
+
+.skill-level-under {
+    background-color: #CC4200;
+    z-index: 1;
 }
 
 .cloud-card .skill-level:not(.skill-level-under) {
@@ -379,6 +616,21 @@ main {
     );
 }
 
+.language-info-cell {
+    width: 40%;
+}
+
+.languages-table .language-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.language-level-cell {
+    width: 60%;
+    color: #333333;
+}
+
 .soft-skills-section .skill-item::before {
     content: ">";
     color: #c85219;
@@ -386,7 +638,7 @@ main {
 }
 
 /* =========================================================
-   THÈME 2 : EFFET MONTAGNE / ROCHE & NEIGE (Projects)
+   6. SECTION PROJECTS (THÈME MONTAGNE / ROCHE & NEIGE)
    ========================================================= */
 .summits-grid {
     display: grid;
@@ -403,7 +655,7 @@ main {
         rgba(42, 54, 70, 0.95) 38%,
         rgba(24, 32, 44, 0.97) 100%
     );
-    box-shadow: inset 0 8px 0 rgba(235, 245, 255, 0.85); /* Liseré neige au sommet */
+    box-shadow: inset 0 8px 0 rgba(235, 245, 255, 0.85);
     filter: drop-shadow(0 12px 20px rgba(8, 16, 28, 0.45));
     display: flex;
     flex-direction: column;
@@ -411,7 +663,6 @@ main {
     padding: 32px 28px 26px 28px;
 }
 
-/* Trame ASCII roche / sommet (/ \ ^ *) */
 .mountain-card::before {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Ctext x='6' y='20' font-family='monospace' font-size='14' fill='%23d8ecff'%3E/ %5C ^ * . / %5C ^%3C/text%3E%3Ctext x='6' y='44' font-family='monospace' font-size='14' fill='%23d8ecff'%3E^ * / %5C . %23 ^ *%3C/text%3E%3Ctext x='6' y='68' font-family='monospace' font-size='14' fill='%23d8ecff'%3E. / %5C %23 * ^ / %5C%3C/text%3E%3Ctext x='6' y='92' font-family='monospace' font-size='14' fill='%23d8ecff'%3E* ^ . / %5C %23 * ^%3C/text%3E%3Ctext x='6' y='116' font-family='monospace' font-size='14' fill='%23d8ecff'%3E/ %5C * ^ . %23 / %5C%3C/text%3E%3C/svg%3E");
     opacity: 0.12;
@@ -423,12 +674,12 @@ main {
 
 .summit-ascii-peak {
     font-family: monospace;
-    font-size: 0.9rem;
-    line-height: 1.1;
+    font-size: 0.75rem;
+    line-height: 1.05;
     text-align: center;
     color: #e8f4ff;
-    opacity: 0.85;
-    margin-bottom: 8px;
+    opacity: 0.9;
+    margin-bottom: 10px;
     white-space: pre;
 }
 
@@ -514,7 +765,6 @@ main {
     border-color: #93d5ff;
 }
 
-/* Bouton View All sous la grille des projets */
 .view-all-container {
     display: flex;
     justify-content: center;
@@ -551,8 +801,16 @@ main {
 }
 
 /* =========================================================
-   THÈME 3 : EFFET VERT ARBRE / FEUILLAGE (Experiences & Education)
+   7. SECTION EXPERIENCES & EDUCATION + CV PDF (40% / 60%)
    ========================================================= */
+.exp-cv-grid {
+    display: grid;
+    grid-template-columns: 5fr 5fr; /* 40% Timeline / 60% CV */
+    gap: 36px;
+    width: 100%;
+    align-items: stretch;
+}
+
 .tree-card {
     background: linear-gradient(180deg, rgba(46, 94, 30, 0.94) 0%, rgba(26, 58, 18, 0.96) 100%);
     filter: drop-shadow(0 10px 18px rgba(10, 30, 8, 0.4));
@@ -574,235 +832,17 @@ main {
     margin-bottom: 15px;
 }
 
-.tree-card .experience-title,
-.tree-card .education-title {
-    color: #ffffff !important;
-}
-
-.tree-card .experience-title::before,
-.tree-card .education-title::before {
-    content: "> ";
-    color: #a6e36b;
-}
-
-.tree-card .experience-date,
-.tree-card .education-date {
-    color: #a6e36b !important;
-}
-
-.tree-card .experience-desc {
-    color: #e8f5e1 !important;
-}
-
-.tree-card .timeline-container::before {
-    background: repeating-linear-gradient(
-        180deg,
-        #82c93c 0px,
-        #82c93c 6px,
-        transparent 6px,
-        transparent 11px
-    );
-}
-
-.tree-card .timeline-dot {
-    background-color: #d7f7b2;
-    border-color: #4f8c1d;
-    border-radius: 0;
-}
-
-/* --- CLASSES UTILITAIRES REFACTORISÉES --- */
-.column-group {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    flex: 1 1 calc(50% - 20px);
-    min-width: 380px;
-    max-width: 820px;
-    z-index: 2;
-}
-
-.sub-section {
+/* Colonne Timeline (40%) */
+.exp-cv-grid .timeline-section {
     width: 100%;
-    margin: 0;
-}
-
-.full-width-container {
-    width: 100%;
-    max-width: 1700px;
-    margin-top: 60px;
-    padding: 0 20px;
-    z-index: 2;
-    align-items: center;
-}
-
-.project-cases {
-    margin-top: 20px;
-    align-items: center;
-}
-
-/* Parcours fusionné Experiences & Education */
-.timelines-section {
-    max-width: 1000px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.timeline-type {
-    display: block;
-    font-family: monospace;
-    font-size: 0.95rem;
-    color: #a6e36b !important;
-    margin-bottom: 2px;
-}
-
-.full-width-section {
-    flex: 1 1 100%;
     max-width: 100%;
-}
-
-/* --- STYLES INTERNES SPÉCIFIQUES --- */
-.skills-section,
-.languages-section {
-    min-height: 250px;
-    padding: 32px;
-}
-
-.soft-skills-section {
-    padding: 32px;
-    min-height: 200px;
-}
-
-.skills-section h2,
-.languages-section h2,
-.soft-skills-section h2 {
-    text-align: center;
-    margin-bottom: 10px;      
-    font-size: 1.85rem;
-    color: white;
-}
-
-.skills-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;                
-}
-
-.skills-table,
-.languages-table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0 8px;    
-}
-
-.skills-table td,
-.languages-table td {
-    padding: 6px 10px;
-    vertical-align: middle;
-    color: white;
-}
-
-.languages-table td {
-    font-size: 1.4rem;
-}
-
-.skill-info-cell {
-    width: 75%;               
-    display: flex;
-    flex-direction: column;
-    gap: 4px;                 
-}
-
-.skill-category-title {
-    font-size: 1.2rem;       
-    color: white;
-    line-height: 1.2;
-    white-space: nowrap;      
-}
-
-.skill-sub {
-    font-size: 1rem;
-    color: #e98f66;
-    line-height: 1.1;
-    white-space: nowrap;      
-}
-
-.skill-bar-cell {
-    width: 25%;
-}
-
-.skill-item {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start; 
-    gap: 15px;                   
-}
-
-.skill-name {
-    width: auto;                 
-    font-size: 1.2rem;
-    color: white;
-}
-
-.external-link {
-    text-decoration: none;
-}
-
-.skill-bar {
-    width: 100%;
-    height: 16px;             
-    background: rgba(0, 0, 0, 0.1); 
-    border-radius: 0;
-    overflow: hidden;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    position: relative; 
-}
-
-.skill-level {
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-radius: 0;
-    transition: width 0.3s ease-in-out;
-}
-
-.skill-level:not(.skill-level-under) {
-    background-color: #ffffff;
-    z-index: 2; 
-}
-
-.skill-bar:hover .skill-level:not(.skill-level-under) {
-    width: 100% !important;
-}
-
-.skill-level-under {
-    background-color: #CC4200; 
-    z-index: 1;
-}
-
-.language-info-cell {
-    width: 40%;               
-}
-
-.languages-table .language-item {
-    display: flex;
-    align-items: center;    
-    gap: 15px;              
-}
-
-.language-level-cell {
-    width: 60%;
-    color: #333333;
+    margin: 0;
 }
 
 .experience-container {
     gap: 25px;
 }
 
-/* --- VERTICAL TIMELINE STYLING --- */
 .timeline-container {
     position: relative;
     padding-left: 25px;
@@ -816,7 +856,13 @@ main {
     top: 5px;
     bottom: 5px;
     width: 3px;
-    background-color: #CC4200;
+    background: repeating-linear-gradient(
+        180deg,
+        #82c93c 0px,
+        #82c93c 6px,
+        transparent 6px,
+        transparent 11px
+    );
 }
 
 .timeline-item {
@@ -835,14 +881,22 @@ main {
     width: 15px;
     height: 15px;
     border-radius: 0;
-    background-color: #ffffff;
-    border: 3px solid #CC4200;
+    background-color: #d7f7b2;
+    border: 3px solid #4f8c1d;
     z-index: 3;
+}
+
+.timeline-type {
+    display: block;
+    font-family: monospace;
+    font-size: 0.95rem;
+    color: #a6e36b !important;
+    margin-bottom: 2px;
 }
 
 .experience-title,
 .education-title {
-    color: #ffffff;
+    color: #ffffff !important;
     font-size: 1.4rem;
 }
 
@@ -850,15 +904,93 @@ main {
     font-size: 1.3rem;
 }
 
-.experience-date {
+.tree-card .experience-title::before,
+.tree-card .education-title::before {
+    content: "> ";
+    color: #a6e36b;
+}
+
+.experience-date,
+.education-date {
     font-size: 1rem;
-    color: #fff;
+    color: #a6e36b !important;
     font-weight: normal;
 }
 
 .experience-desc {
     font-size: 1.1rem;
     margin-top: 5px;
+    color: #e8f5e1 !important;
+}
+
+/* Colonne CV PDF (60%) */
+.cv-preview-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.cv-embed-wrapper {
+    width: 100%;
+    flex-grow: 1;
+    min-height: 560px;
+    border: 2px dashed rgba(166, 227, 107, 0.45);
+    background: rgba(14, 32, 10, 0.65);
+    overflow: hidden;
+}
+
+.cv-iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 560px;
+    border: none;
+    display: block;
+}
+
+.cv-actions {
+    display: flex;
+    gap: 14px;
+    width: 100%;
+}
+
+.cv-download-btn {
+    flex: 1;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    font-family: monospace;
+    font-size: 1.15rem;
+    font-weight: bold;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px dashed rgba(166, 227, 107, 0.55);
+    color: #e4f7c8;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.cv-download-btn:hover {
+    background: #a6e36b;
+    color: #142a0e;
+    border-color: #ffffff;
+}
+
+/* =========================================================
+   8. SECTION HOBBIES & CARROUSEL
+   ========================================================= */
+.hobbies-layout-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.hobbies-text-content {
+    flex: 1;
+    font-size: 1.5rem;
+    text-align: justify;
+    padding: 18px 22px;
+    border: 2px dashed rgba(255, 255, 255, 0.25);
 }
 
 .hobbies-list {
@@ -874,117 +1006,13 @@ main {
     color: #e7be07;
 }
 
-.reference-mail {
-    font-size: 1rem;
-    margin-top: 3px;
-}
-
-.reference-mail a {
-    color: #ffffff;
-    text-decoration: underline;
-}
-
-/* --- ÉLÉMENTS GLOBAUX --- */
-.icon_information {
-    width: 30px;
-    height: auto;
-}
-
-#me {
-    color: white;
-    max-width: 100%;
-    text-align: justify;
-    font-family: monospace;
-    font-size: 1.4rem;
-    line-height: 1.7;
-    margin: 0 auto 30px auto;
-    padding: 20px 26px;
-    z-index: 2;
-    position: relative;
-    opacity: 1;
-    border: 2px dashed rgba(255, 255, 255, 0.25);
-    background: rgba(255, 255, 255, 0.04);
-}
-
-.copy-link {
-    cursor: pointer;
-}
-
-/* --- SYSTÈME DE CONTENEUR ENCADRÉ (WHO AM I, PROJECTS, EXPERIENCES, HOBBIES) --- */
-.hobbies-standalone {
-    width: 100%;
-    padding: 36px;
-    margin-top: 30px;
-    position: relative;
-    overflow: hidden;
-    backdrop-filter: blur(10px);
-    clip-path: polygon(
-        0px 18px, 6px 18px, 6px 6px, 18px 6px, 18px 0px, 
-        calc(100% - 18px) 0px, calc(100% - 18px) 6px, calc(100% - 6px) 6px, calc(100% - 6px) 18px, 
-        100% 18px, 100% calc(100% - 18px), calc(100% - 6px) calc(100% - 18px), 
-        calc(100% - 6px) calc(100% - 6px), calc(100% - 18px) calc(100% - 6px), 
-        calc(100% - 18px) 100%, 18px 100%, 18px calc(100% - 6px), 
-        6px calc(100% - 6px), 6px calc(100% - 18px), 0px calc(100% - 18px)
-    );
-}
-
-.hobbies-standalone::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Ctext x='6' y='20' font-family='monospace' font-size='14' fill='%23ffffff'%3E~ - %3D %2B * %3A . ~%3C/text%3E%3Ctext x='6' y='44' font-family='monospace' font-size='14' fill='%23ffffff'%3E. ~ %2B - * %3D %3A .%3C/text%3E%3Ctext x='6' y='68' font-family='monospace' font-size='14' fill='%23ffffff'%3E%3D . ~ * %2B - %3A ~%3C/text%3E%3Ctext x='6' y='92' font-family='monospace' font-size='14' fill='%23ffffff'%3E* %3A - . %3D ~ %2B .%3C/text%3E%3Ctext x='6' y='116' font-family='monospace' font-size='14' fill='%23ffffff'%3E%2B ~ . %3A - * %3D %3A%3C/text%3E%3C/svg%3E");
-    background-size: 120px 120px;
-    background-repeat: repeat;
-    opacity: 0.08;
-    z-index: 1;
-    pointer-events: none;
-}
-
-.hobbies-standalone::after {
-    content: "";
-    position: absolute;
-    inset: 10px;
-    border: 2px dashed rgba(255, 255, 255, 0.3);
-    z-index: 1;
-    pointer-events: none;
-}
-
-.hobbies-standalone > * {
-    position: relative;
-    z-index: 2;
-}
-
-.hobbies-standalone > h2 {
-    text-align: center;
-    font-size: 3.8rem;
-    color: white;
-    margin-bottom: 24px;
-    border-bottom: 2px dashed rgba(255, 255, 255, 0.3);
-    padding-bottom: 10px;
-}
-
-.hobbies-standalone .cases {
-    padding: 0;
-    width: 100%;
-}
-
-.hobbies-standalone .timeline-section {
-    max-width: 100%;
-}
-
-.hobbies-layout-container {
+.carousel-wrapper {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-}
-
-.hobbies-text-content {
-    flex: 1;
-    font-size: 1.5rem;
-    text-align: justify;
-    padding: 18px 22px;
-    border: 2px dashed rgba(255, 255, 255, 0.25);
+    gap: 8px;
+    width: 700px;
+    flex-shrink: 0;
 }
 
 .hobby-carousel {
@@ -1042,13 +1070,12 @@ main {
     color: #333;
 }
 
-.carousel-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    width: 700px;
-    flex-shrink: 0;
+.prev-btn {
+    left: 5px;
+}
+
+.next-btn {
+    right: 5px;
 }
 
 .carousel-caption {
@@ -1070,15 +1097,9 @@ main {
     content: " ]";
 }
 
-.prev-btn {
-    left: 5px;
-}
-
-.next-btn {
-    right: 5px;
-}
-
-/* --- FOOTER / REFERENCES --- */
+/* =========================================================
+   9. FOOTER & REFERENCES
+   ========================================================= */
 footer {
     width: 100%;
     margin: 40px auto 0 auto;
@@ -1095,7 +1116,6 @@ footer {
     overflow: hidden;
 }
 
-/* Trame ASCII façon sol / sous-bois */
 .footer-container::before {
     content: "";
     position: absolute;
@@ -1210,10 +1230,6 @@ footer {
     border-bottom-color: #a6e36b;
 }
 
-.timelines {
-    align-items: center;
-}
-
 .footer-trees {
     position: absolute;
     bottom: 100%;
@@ -1232,7 +1248,6 @@ footer {
     transform-origin: bottom center;
 }
 
-/* Placement et tailles des arbres */
 .tree-1 {
     left: 0%;
     bottom: -160px;
@@ -1245,6 +1260,11 @@ footer {
     width: 1800px;
 }
 
-.timelines-section{
-    max-width: 1000px;
+/* =========================================================
+   10. RESPONSIVE
+   ========================================================= */
+@media (max-width: 1050px) {
+    .exp-cv-grid {
+        grid-template-columns: 1fr;
+    }
 }

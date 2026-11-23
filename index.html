@@ -148,7 +148,7 @@
                                         <tr>
                                             <td class="skill-info-cell">
                                                 <span class="skill-category-title">Creating and communicating with a database</span>
-                                                <span class="skill-sub">Oracle, PostgreSQL, pandas</span>
+                                                <span class="skill-sub">Oracle, PostgreSQL</span>
                                             </td>
                                             <td class="skill-bar-cell">
                                                 <div class="skill-bar">
@@ -172,7 +172,7 @@
                                         <tr>
                                             <td class="skill-info-cell">
                                                 <span class="skill-category-title">Visualizing data & Business Intelligence</span>
-                                                <span class="skill-sub">Matplotlib, Power BI</span>
+                                                <span class="skill-sub">Matplotlib, Power BI, pandas</span>
                                             </td>
                                             <td class="skill-bar-cell">
                                                 <div class="skill-bar">
@@ -233,80 +233,7 @@
                 <div class="hobbies-standalone">
                     <h2 id="projects">Projects</h2>
                     
-                    <div class="summits-grid">
-                        <!-- SOMMET 1 -->
-                        <article class="skills-section mountain-card summit-card">
-                            <div class="summit-ascii-peak" aria-hidden="true">   /\   <br>  /  \  <br> / /\ \ </div>
-                            <div class="summit-meta">
-                                <span class="summit-tag">[ SUMMIT 01 ]</span>
-                                <span class="summit-alt">ALT. 2 150m</span>
-                            </div>
-                            <h2>the "ORB" </h2> 
-                            <div class="summit-stats">
-                                <span>•</span>
-                                <span>Status: ascension in progress</span>
-                            </div>
-                            <p class="summit-desc">
-                               Created a real-time trading algorithm integrated with technical indicator-based filtering.<br>
-                                Visualisation de statistiques sur matplotlib, optimisation des valeurs et hebergement sur serveur
-                            </p>
-                            <div class="summit-gear">
-                                <span class="gear-badge">Numpy</span>
-                                <span class="gear-badge">Panda</span>
-                                <span class="gear-badge">Python</span>
-                            </div>
-                            <a href="#" class="summit-link">--[ Inspect Summit -> ]--</a>
-                        </article>
-
-                        <!-- SOMMET 2 -->
-                        <article class="skills-section mountain-card summit-card">
-                            <div class="summit-ascii-peak" aria-hidden="true">    /\    <br>   /  \   <br>  / ** \  </div>
-                            <div class="summit-meta">
-                                <span class="summit-tag">[ SUMMIT 02 ]</span>
-                                <span class="summit-alt">ALT. 3 420m</span>
-                            </div>
-                            <h2>Charity's Database</h2>
-                            <div class="summit-stats">
-                                <span>•</span>
-                                <span>Status: Reached ✓</span>
-                            </div>
-                            <p class="summit-desc">
-                                > Data processing pipeline cleaning 500k+ GPS & gym performance logs to predict fatigue and progression curves.<br>
-                                > Interactive KPI dashboards built for weekly training insights.
-                            </p>
-                            <div class="summit-gear">
-                                <span class="gear-badge">Python</span>
-                                <span class="gear-badge">Pandas</span>
-                                <span class="gear-badge">NumPy</span>
-                                <span class="gear-badge">Power BI</span>
-                            </div>
-                            <a href="#" class="summit-link">--[ Inspect Summit -> ]--</a>
-                        </article>
-
-                       <!-- SOMMET 3 -->
-                        <article class="skills-section mountain-card summit-card">
-                            <div class="summit-ascii-peak" aria-hidden="true">   /\/\   <br>  /    \  <br> /_ ** _\ </div>
-                            <div class="summit-meta">
-                                <span class="summit-tag">[ SUMMIT 03 ]</span>
-                                <span class="summit-alt">ALT. 4 808m</span>
-                            </div>
-                            <h2>Website conception</h2>
-                            <div class="summit-stats">
-                                <span>•</span>
-                                <span>Status: Base Camp ⚑</span>
-                            </div>
-                            <p class="summit-desc">
-                                > Full-stack showcase and inventory manager for custom upcycled garments.<br>
-                                > Features textile traceability, dynamic filtering, and retro pixel-art UI.
-                            </p>
-                            <div class="summit-gear">
-                                <span class="gear-badge">HTML/CSS</span>
-                                <span class="gear-badge">JavaScript</span>
-                                <span class="gear-badge">PHP</span>
-                                <span class="gear-badge">SQL</span>
-                            </div>
-                            <a href="#" class="summit-link">--[ Inspect Summit -> ]--</a>
-                        </article>
+                    <div class="summits-grid" id="home-summits-grid">
                     </div>
 
                     <!-- BOUTON VIEW ALL -->
@@ -318,14 +245,14 @@
             </div>
         </div>
 
-        <!-- SECTION 3 : EXPERIENCES & EDUCATION -->
+        <!-- SECTION 3 : EXPERIENCES & EDUCATION + CV PDF -->
         <div class="full-width-container">
-            <div class="cases project-cases timelines-section" style="flex-direction: column; align-items: center;">
+            <div class="cases project-cases" style="flex-direction: column; align-items: center;">
                 <div class="hobbies-standalone">
                     <h2>Experiences & Education</h2>
-                    <div class="cases project-cases">
-                        
-                        <!-- Parcours fusionné : expériences et formation, par ordre chronologique -->
+                    
+                    <div class="exp-cv-grid">
+                        <!-- COLONNE GAUCHE : Parcours fusionné -->
                         <section class="skills-section tree-card timeline-section">
                             <h2>Journey Log</h2>
                             <div class="skills-container experience-container timeline-container">
@@ -361,7 +288,19 @@
                             </div>
                         </section>
 
+                        <!-- COLONNE DROITE : Aperçu du CV PDF -->
+                        <section class="skills-section tree-card cv-preview-section">
+                            <h2>Resume (PDF)</h2>
+                            <div class="cv-embed-wrapper">
+                                <iframe src="CV.pdf#view=FitH" title="CV Jonathan Morin" class="cv-iframe"></iframe>
+                            </div>
+                            <div class="cv-actions">
+                                <a href="CV.pdf" download="CV_Jonathan_Morin.pdf" class="cv-download-btn">--[ Download CV.pdf ]--</a>
+                                <a href="CV.pdf" target="_blank" rel="noopener noreferrer" class="cv-download-btn">--[ View CV ]--</a>
+                            </div>
+                        </section>
                     </div>
+
                 </div>
             </div>
         </div>

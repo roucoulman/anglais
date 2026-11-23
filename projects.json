@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "tag": "SUMMIT 01",
+    "altitude": "2 950m",
+    "asciiPeak": "    /\\    \n   /  \\   \n  / .. \\  ",
+    "title": "Trading Bot",
+    "categories": ["data"],
+    "hours": 30,
+    "status": "Ascension in progress",
+    "description": [
+      "Built an autonomous trading bot based on recurring daily market patterns.",
+      "Used Matplotlib for data visualization, with cloud deployment and configuration."
+    ],
+    "gear": ["Python", "Pandas", "NumPy", "Network"],
+    "link": "#"
+  },
+  {
+    "id": 2,
+    "tag": "SUMMIT 02",
+    "altitude": "3 150m",
+    "asciiPeak": "   /\\   \n  /  \\  \n / /\\ \\ ",
+    "title": "Tesla Web Application",
+    "categories": ["web", "db"],
+    "hours": 25,
+    "status": "Ascension in progress",
+    "description": [
+      "Recreated the Tesla website within a 5-person Agile team.",
+      "Developed with Laravel, integrating a PostgreSQL database, server hosting, and cryptography."
+    ],
+    "gear": ["Web", "SQL", "Laravel", "Linux"],
+    "link": "#"
+  },
+  {
+    "id": 3,
+    "tag": "SUMMIT 03",
+    "altitude": "1 280m",
+    "asciiPeak": "   /^\\   \n  /   \\  \n / * * \\ ",
+    "title": "Diving Club Database",
+    "categories": ["db"],
+    "hours": 30,
+    "status": "Reached ✓",
+    "description": [
+      "Modeled and built a relational database for a fictional diving association.",
+      "Wrote complex SQL queries to handle user requests, finances, and equipment lifecycle management."
+    ],
+    "gear": ["Oracle SQL"],
+    "link": "#"
+  },
+  {
+    "id": 4,
+    "tag": "SUMMIT 04",
+    "altitude": "1 420m",
+    "asciiPeak": "    /\\    \n   /  \\   \n  / ** \\  ",
+    "title": "Mobile Gym Tracker App",
+    "categories": ["web", "db"],
+    "hours": 5,
+    "status": "ascnesion in progress",
+    "description": [
+      "Developed a mobile-friendly gym performance tracking tool tailored to specific fatigue windows.",
+      "Includes workout progression tracking, visual charts, and full database integration."
+    ],
+    "gear": ["Web", "SQL"],
+    "link": "https://roucoulman.github.io/pillars_x_gym/"
+  }
+]
