@@ -7,7 +7,7 @@ import numpy as np
 # =====================================================================
 IMAGE_PATH = "img/photos/mountain.jpg"          # Chemin de ton image source
 OUTPUT_PATH = "img/langues/mountain_ascii.png"   # Chemin de sauvegarde (si activé)
-SAUVEGARDER_PNG = True                              # Passe à True quand tu veux enregistrer le .png
+SAUVEGARDER_PNG = False                              # Passe à True quand tu veux enregistrer le .png
 
 # 1. Densité et proportions
 LARGEUR_CARACTERES = 256   # Nombre de caractères en largeur (150 à 350 pour beaucoup de détails)
@@ -25,7 +25,7 @@ TAILLE_CELLULE_PX = 16    # Taille d'une cellule en pixels (16 = haute résoluti
 ECHELLE_POLICE = 0.7      # Taille de la police OpenCV (adaptée à TAILLE_CELLULE_PX = 16)
 EPAISSEUR_TRAIT = 10      # Épaisseur des caractères (1 ou 2)
 CONTRASTE = 1.0           # 1.0 = normal, > 1.0 = renforce les contrastes
-LUMINOSITE = 0            # Décalage de luminosité (-50 à +50)
+LUMINOSITE = 10            # Décalage de luminosité (-50 à +50)
 
 # Palette ASCII ultra-dense (70 niveaux du plus sombre au plus lumineux)
 PALETTE_ASCII = r"$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,\"^`'. "

@@ -13,7 +13,7 @@
       "Used Matplotlib for data visualization, with cloud deployment and configuration."
     ],
     "gear": ["Python", "Pandas", "NumPy", "Network"],
-    "link": "#"
+    "link": "orb.html"
   },
   {
     "id": 2,
@@ -28,7 +28,7 @@
       "Recreated the Tesla website within a 5-person Agile team.",
       "Developed with Laravel, integrating a PostgreSQL database, server hosting, and cryptography."
     ],
-    "gear": ["Web", "SQL", "Laravel", "Linux"],
+    "gear": ["Web", "SQL", "Laravel", "Network"],
     "link": "#"
   },
   {
@@ -44,7 +44,7 @@
       "Modeled and built a relational database for a fictional diving association.",
       "Wrote complex SQL queries to handle user requests, finances, and equipment lifecycle management."
     ],
-    "gear": ["Oracle SQL"],
+    "gear": ["Oracle SQL","Looping"],
     "link": "#"
   },
   {
@@ -60,7 +60,7 @@
       "Developed a mobile-friendly gym performance tracking tool tailored to specific fatigue windows.",
       "Includes workout progression tracking, visual charts, and full database integration."
     ],
-    "gear": ["Web", "SQL"],
+    "gear": ["Web", "SQL","Git"],
     "link": "https://roucoulman.github.io/pillars_x_gym/"
   }
 ]

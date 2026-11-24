@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORB Quant Engine | Bot de Trading Python Londres & New York</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js pour le schéma de prix interactif -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
+    <style>
+        body {
+            background-color: #090d16;
+            color: #e2e8f0;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+        .glass-card {
+            background: rgba(19, 26, 42, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(51, 65, 85, 0.6);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-blue-500 selection:text-white">
+
+    <!-- BANDEAU LIVE MARKET API (CRYPTOS & ACTIONS/FOREX) -->
+    <div class="bg-[#060911] border-b border-slate-800/90 text-xs py-2 px-4">
+        <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-3">
+            <!-- Indicateur de connexion API -->
+            <div class="flex items-center gap-2 font-mono text-slate-400">
+                <span class="relative flex h-2 w-2">
+                    <span id="api-ping" class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span id="api-dot" class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                <span id="api-status" class="text-[11px] uppercase tracking-wider text-emerald-400 font-semibold">API LIVE</span>
+            </div>
+
+            <!-- Conteneur des actifs récupérés par l'API -->
+            <div id="market-ticker" class="flex flex-wrap items-center gap-4 sm:gap-6 font-mono overflow-x-auto">
+                <span class="text-slate-500 animate-pulse">Connexion aux flux de marché...</span>
+            </div>
+
+            <!-- Heure de mise à jour -->
+            <div class="hidden lg:block text-[11px] font-mono text-slate-500">
+                MAJ : <span id="last-update">--:--:--</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 glass-card border-b border-slate-800/80">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+                <div class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center font-bold text-white shadow-lg shadow-blue-500/30">
+                    ORB
+                </div>
+            </div>
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+                <a href="#concept" class="hover:text-white transition">La Stratégie ORB</a>
+                <a href="#schema-interactif" class="hover:text-white transition">Schéma Technique</a>
+                <a href="#sessions" class="hover:text-white transition">Londres & New York</a>
+                <a href="#architecture" class="hover:text-white transition">Architecture Python</a>
+            </div>
+            <a href="#schema-interactif" class="px-4 py-2 text-xs font-semibold bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition shadow-md shadow-blue-600/20">
+                Voir le modèle
+            </a>
+        </div>
+    </nav>
+
+    <!-- 1. HERO SECTION -->
+    <header class="relative overflow-hidden pt-20 pb-24 border-b border-slate-800/60">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-medium mb-6">
+                <span>Algorithme de Trading Automatisé en Python</span>
+            </div>
+            <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight mb-6">
+                Capturez l'impulsion institutionnelle avec l'<span class="gradient-text">Opening Range Breakout</span>
+            </h1>
+            <p class="text-lg text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+                Un moteur algorithmique développé en Python qui identifie automatiquement la zone d'équilibre à l'ouverture des marchés de <strong class="text-slate-200">Londres</strong> et <strong class="text-slate-200">New York</strong>, et exécute les cassures à haute probabilité.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#schema-interactif" class="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold transition shadow-lg shadow-blue-600/25">
+                    Explorer le schéma de cassure
+                </a>
+                <a href="#architecture" class="px-6 py-3 rounded-xl glass-card hover:bg-slate-800 text-slate-200 font-semibold transition">
+                    Comment fonctionne le code ?
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. EXPLICATION DU CONCEPT ORB -->
+    <section id="concept" class="py-20 max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-14">
+            <h2 class="text-3xl font-bold text-white mb-3">Qu'est-ce que l'Opening Range Breakout (ORB) ?</h2>
+            <p class="text-slate-400 max-w-2xl mx-auto">Une approche mathématique et mécanique basée sur l'afflux de liquidité lors des premières minutes de cotation.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="glass-card p-6 rounded-2xl">
+                <div class="w-10 h-10 rounded-lg bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center font-bold mb-4">1</div>
+                <h3 class="text-lg font-bold text-white mb-2">La Formation du Range</h3>
+                <p class="text-sm text-slate-400 leading-relaxed">
+                    Durant les <strong class="text-slate-200">15 premières minutes</strong> d'ouverture d'une session, acheteurs et vendeurs s'affrontent. Le bot enregistre le point le plus haut (<em>ORB High</em>) et le plus bas (<em>ORB Low</em>).
+                </p>
+            </div>
+
+            <div class="glass-card p-6 rounded-2xl">
+                <div class="w-10 h-10 rounded-lg bg-blue-500/10 border border-blue-500/20 text-blue-400 flex items-center justify-center font-bold mb-4">2</div>
+                <h3 class="text-lg font-bold text-white mb-2">La Cassure (Breakout)</h3>
+                <p class="text-sm text-slate-400 leading-relaxed">
+                    Dès qu'une bougie clôture franchement au-dessus de l'ORB High ou en dessous de l'ORB Low, le déséquilibre est confirmé : l'algorithme déclenche un ordre au marché.
+                </p>
+            </div>
+
+            <div class="glass-card p-6 rounded-2xl">
+                <div class="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold mb-4">3</div>
+                <h3 class="text-lg font-bold text-white mb-2">Gestion du Risque Fixe</h3>
+                <p class="text-sm text-slate-400 leading-relaxed">
+                    Le <strong class="text-slate-200">Stop Loss</strong> est placé de l'autre côté du range (ou au milieu), et le <strong class="text-slate-200">Take Profit</strong> est projeté automatiquement selon un ratio Risque/Récompense défini (ex: 1:2).
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. SCHÉMA INTERACTIF DU TRADE ORB -->
+    <section id="schema-interactif" class="py-16 bg-[#0d1322] border-y border-slate-800/80">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-4">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-wider text-blue-400">Modélisation Visuelle</span>
+                    <h2 class="text-3xl font-bold text-white mt-1">Anatomie d'un Setup ORB</h2>
+                    <p class="text-sm text-slate-400 mt-1">Visualisez la boîte d'ouverture (zone grisée) et le déclenchement de l'algorithme.</p>
+                </div>
+
+                <!-- Sélecteur Scénario Long / Short -->
+                <div class="flex bg-[#090d16] p-1 rounded-xl border border-slate-800">
+                    <button onclick="setScenario('LONG')" id="btn-LONG" class="px-4 py-2 text-xs font-semibold rounded-lg bg-emerald-600 text-white transition">
+                        Scénario Achat (Long)
+                    </button>
+                    <button onclick="setScenario('SHORT')" id="btn-SHORT" class="px-4 py-2 text-xs font-semibold rounded-lg text-slate-400 hover:text-white transition">
+                        Scénario Vente (Short)
+                    </button>
+                </div>
+            </div>
+
+            <!-- Conteneur du graphique schéma -->
+            <div class="glass-card p-6 rounded-2xl">
+                <div class="h-80 sm:h-96 w-full">
+                    <canvas id="orbDiagramChart"></canvas>
+                </div>
+                <!-- Légende explicative sous le schéma -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-6 pt-6 border-t border-slate-800 text-xs">
+                    <div class="flex items-center gap-2">
+                        <span class="w-3 h-3 rounded-sm bg-blue-500/30 border border-blue-400"></span>
+                        <span class="text-slate-300"><strong>Boîte ORB :</strong> 15 premières min</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-3 h-0.5 bg-amber-400"></span>
+                        <span class="text-slate-300"><strong>Entrée :</strong> Clôture hors range</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-3 h-0.5 bg-rose-500"></span>
+                        <span class="text-slate-300"><strong>Stop Loss :</strong> Limite d'invalidation</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-3 h-0.5 bg-emerald-400"></span>
+                        <span class="text-slate-300"><strong>Take Profit :</strong> Objectif 2R</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. TIMELINE DES SESSIONS LONDRES & NEW YORK -->
+    <section id="sessions" class="py-20 max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-14">
+            <h2 class="text-3xl font-bold text-white mb-3">Fenêtres d'Intervention : Londres & New York</h2>
+            <p class="text-slate-400 max-w-2xl mx-auto">Le bot reste inactif pendant les heures creuses et ne s'active que lors des deux plus gros pics de volume mondiaux (horaires affichés en heure de Paris - CET).</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Carte Session Londres -->
+            <div class="glass-card p-8 rounded-2xl border-l-4 border-l-amber-500 relative overflow-hidden">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Session Européenne</span>
+                        <h3 class="text-2xl font-bold text-white mt-1">Ouverture de Londres</h3>
+                    </div>
+                    <span class="px-3 py-1 rounded-lg bg-amber-500/10 text-amber-300 font-mono text-sm font-semibold">09:00 CET</span>
+                </div>
+                <p class="text-sm text-slate-400 mb-6">
+                    Forte volatilité sur les indices européens et les paires majeures liées à l'Euro et la Livre Sterling.
+                </p>
+                <!-- Schéma barre temporelle Londres -->
+                <div class="space-y-3 text-xs">
+                    <div class="flex justify-between text-slate-400 font-mono">
+                        <span>09:00 (Calcul ORB)</span>
+                        <span>09:15 (Breakout)</span>
+                        <span>11:30 (Fin fenêtre)</span>
+                    </div>
+                    <div class="w-full h-3 bg-slate-800 rounded-full overflow-hidden flex">
+                        <div class="w-1/4 bg-amber-500" title="Observation Range 15m"></div>
+                        <div class="w-2/4 bg-emerald-500/70" title="Chasse au Breakout"></div>
+                        <div class="w-1/4 bg-slate-700" title="Gestion / Clôture"></div>
+                    </div>
+                    <div class="flex flex-wrap gap-2 pt-2">
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300 font-mono">DAX40 (GER40)</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300 font-mono">FTSE100</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300 font-mono">GBP/USD</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300 font-mono">EUR/USD</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carte Session New York -->
+            <div class="glass-card p-8 rounded-2xl border-l-4 border-l-indigo-500 relative overflow-hidden">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-indigo-400">Session Américaine</span>
+                        <h3 class="text-2xl font-bold text-white mt-1">Ouverture de New York</h3>
+                    </div>
+                    <span class="px-3 py-1 rounded-lg bg-indigo-500/10 text-indigo-300 font-mono text-sm font-semibold">15:30 CET</span>
+                </div>
+                <p class="text-sm text-slate-400 mb-6">
+                    Injection massive de capitaux à l'ouverture de Wall Street (NYSE / NASDAQ). Mouvements directionnels puissants.
+                </p>
+                <!-- Schéma barre temporelle NY -->
+                <div class="space-y-3 text-xs">
+                    <div class="flex justify-between text-slate-400 font-mono">
+                        <span>15:30 (Calcul ORB)</span>
+                        <span>15:45 (Breakout)</span>
+                        <span>18:00 (Fin fenêtre)</span>
+                    </div>
+                    <div class="w-full h-3 bg-slate-800 rounded-full overflow-hidden flex">
+                        <div class="w-1/4 bg-indigo-500" title="Observation Range 15m"></div>
+                        <div class="w-2/4 bg-emerald-500/70" title="Chasse au Breakout"></div>
+                        <div class="w-1/4 bg-slate-700" title="Gestion / Clôture"></div>
+                    </div>
+                    <div class="flex flex-wrap gap-2 pt-2">
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300 font-mono">NASDAQ (US100)</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300 font-mono">S&P 500</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300 font-mono">US30</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300 font-mono">XAU/USD (Or)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. SCHÉMA D'ARCHITECTURE DU BOT PYTHON -->
+    <section id="architecture" class="py-20 bg-[#0d1322] border-t border-slate-800/80">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-14">
+                <span class="text-xs font-bold uppercase tracking-wider text-blue-400">Sous le capot</span>
+                <h2 class="text-3xl font-bold text-white mt-1">Pipeline d'Exécution Python</h2>
+                <p class="text-slate-400 max-w-xl mx-auto mt-2">De la récupération des ticks en temps réel jusqu'à l'envoi de l'ordre au broker.</p>
+            </div>
+
+            <!-- Pipeline en 4 blocs connectés -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="glass-card p-6 rounded-xl relative">
+                    <span class="text-xs font-mono text-blue-400">01 // DATA FEED</span>
+                    <h4 class="text-base font-bold text-white mt-2 mb-2">Flux Temps Réel</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">Connexion WebSocket / API Broker (MetaTrader5, Interactive Brokers ou Alpaca) pour récupérer les bougies M1/M5.</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-xl relative">
+                    <span class="text-xs font-mono text-indigo-400">02 // PANDAS & NUMPY</span>
+                    <h4 class="text-base font-bold text-white mt-2 mb-2">Calcul du Range</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">Extraction vectorisée du High/Low entre 09:00-09:15 et 15:30-15:45. Filtrage par taille minimale de range (ATR).</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-xl relative">
+                    <span class="text-xs font-mono text-amber-400">03 // SIGNAL ENGINE</span>
+                    <h4 class="text-base font-bold text-white mt-2 mb-2">Validation Cassure</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">Vérification de la clôture hors range + filtre de volume pour éviter les faux départs (<em>fakeouts</em>).</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-xl relative">
+                    <span class="text-xs font-mono text-emerald-400">04 // EXECUTION</span>
+                    <h4 class="text-base font-bold text-white mt-2 mb-2">Ordre & Risk Manager</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">Calcul automatique de la taille de lot selon le capital, envoi de l'ordre avec SL/TP et notification Telegram/Discord.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- ========================================== -->
+    <!-- SCRIPT 1 : API LIVE CRYPTOS & ACTIONS      -->
+    <!-- ========================================== -->
+    <script>
+        // Clé API gratuite Finnhub pour les actions US (AAPL, NVDA, SPY)
+        // Vous pouvez remplacer par votre propre clé gratuite sur finnhub.io
+        const FINNHUB_API_KEY = 'sandbox_c9k32qiad3i839000000'; 
+
+        async function fetchMarketData() {
+            const tickerContainer = document.getElementById('market-ticker');
+            const statusText = document.getElementById('api-status');
+            const statusDot = document.getElementById('api-dot');
+            const statusPing = document.getElementById('api-ping');
+
+            try {
+                // 1. Récupération CRYPTOS via API publique Binance (Temps réel, sans clé)
+                const cryptoSymbols = ['BTCUSDT', 'ETHUSDT', 'SOLUSDT'];
+                const cryptoRes = await fetch(`https://api.binance.com/api/v3/ticker/24hr?symbols=${JSON.stringify(cryptoSymbols)}`);
+                const cryptoData = await cryptoRes.json();
+
+                // 2. Récupération ACTIONS via Yahoo Finance Proxy (AllOrigins -> Yahoo Query)
+                const stockSymbols = ['AAPL', 'NVDA', '^GSPC']; // Apple, Nvidia, S&P 500
+                const stockPromises = stockSymbols.map(async (sym) => {
+                    try {
+                        const url = `https://query1.finance.yahoo.com/v8/finance/chart/${sym}?interval=1d&range=2d`;
+                        const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`;
+                        const res = await fetch(proxyUrl);
+                        const wrapped = await res.json();
+                        const parsed = JSON.parse(wrapped.contents);
+                        const meta = parsed.chart.result[0].meta;
+                        const price = meta.regularMarketPrice;
+                        const prevClose = meta.chartPreviousClose;
+                        const changePct = ((price - prevClose) / prevClose) * 100;
+                        return {
+                            symbol: sym === '^GSPC' ? 'S&P 500' : sym,
+                            price: price.toFixed(2),
+                            change: changePct.toFixed(2),
+                            type: 'STOCK'
+                        };
+                    } catch (e) {
+                        return null;
+                    }
+                });
+
+                const stocksData = (await Promise.all(stockPromises)).filter(Boolean);
+
+                // Formatage des cryptos
+                const formattedCryptos = cryptoData.map(item => ({
+                    symbol: item.symbol.replace('USDT', '/USD'),
+                    price: parseFloat(item.lastPrice).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }),
+                    change: parseFloat(item.priceChangePercent).toFixed(2),
+                    type: 'CRYPTO'
+                }));
+
+                const allAssets = [...stocksData, ...formattedCryptos];
+
+                // Génération du HTML du bandeau
+                tickerContainer.innerHTML = allAssets.map(asset => {
+                    const isPositive = parseFloat(asset.change) >= 0;
+                    const colorClass = isPositive ? 'text-emerald-400' : 'text-rose-400';
+                    const sign = isPositive ? '+' : '';
+                    const badge = asset.type === 'CRYPTO' 
+                        ? '<span class="text-[9px] px-1 rounded bg-amber-500/10 text-amber-400 mr-1">CRYPTO</span>' 
+                        : '<span class="text-[9px] px-1 rounded bg-blue-500/10 text-blue-400 mr-1">ACTION</span>';
+
+                    return `
+                        <div class="flex items-center gap-1.5 whitespace-nowrap">
+                            ${badge}
+                            <span class="font-bold text-slate-200">${asset.symbol}</span>
+                            <span class="text-slate-300">$${asset.price}</span>
+                            <span class="${colorClass} font-semibold">(${sign}${asset.change}%)</span>
+                        </div>
+                    `;
+                }).join('<span class="text-slate-700">|</span>');
+
+                // Mise à jour horodatage et statut vert
+                const now = new Date();
+                document.getElementById('last-update').textContent = now.toLocaleTimeString('fr-FR');
+                statusText.textContent = 'API LIVE';
+                statusText.className = 'text-[11px] uppercase tracking-wider text-emerald-400 font-semibold';
+                statusDot.className = 'relative inline-flex rounded-full h-2 w-2 bg-emerald-500';
+                statusPing.classList.remove('hidden');
+
+            } catch (error) {
+                console.error('Erreur API:', error);
+                statusText.textContent = 'HORS LIGNE';
+                statusText.className = 'text-[11px] uppercase tracking-wider text-rose-400 font-semibold';
+                statusDot.className = 'relative inline-flex rounded-full h-2 w-2 bg-rose-500';
+                statusPing.classList.add('hidden');
+            }
+        }
+
+        // Lancement immédiat + rafraîchissement toutes les 10 secondes
+        fetchMarketData();
+        setInterval(fetchMarketData, 10000);
+    </script>
+
+    <!-- ========================================== -->
+    <!-- SCRIPT 2 : SCHÉMA INTERACTIF CHART.JS      -->
+    <!-- ========================================== -->
+    <script>
+        Chart.defaults.color = '#94a3b8';
+
+        const scenarios = {
+            LONG: {
+                prices: [100, 106, 97, 104, 108, 114, 112, 119, 125, 130],
+                orbHigh: 106,
+                orbLow: 97,
+                entry: 108,
+                sl: 97,
+                tp: 130,
+                lineColor: '#10b981',
+                labelEntry: 'Achat (Breakout Long) : 108',
+                labelTP: 'Take Profit (2R) : 130',
+                labelSL: 'Stop Loss : 97'
+            },
+            SHORT: {
+                prices: [120, 125, 116, 122, 113, 107, 110, 102, 96, 92],
+                orbHigh: 125,
+                orbLow: 116,
+                entry: 113,
+                sl: 125,
+                tp: 92,
+                lineColor: '#f43f5e',
+                labelEntry: 'Vente (Breakout Short) : 113',
+                labelTP: 'Take Profit (2R) : 92',
+                labelSL: 'Stop Loss : 125'
+            }
+        };
+
+        const ctx = document.getElementById('orbDiagramChart').getContext('2d');
+        
+        function buildAnnotations(sc) {
+            return {
+                orbBox: {
+                    type: 'box',
+                    xMin: 0,
+                    xMax: 3,
+                    yMin: sc.orbLow,
+                    yMax: sc.orbHigh,
+                    backgroundColor: 'rgba(59, 130, 246, 0.18)',
+                    borderColor: '#3b82f6',
+                    borderWidth: 1.5,
+                    label: {
+                        display: true,
+                        content: 'Zone ORB (15 min)',
+                        color: '#93c5fd',
+                        font: { size: 11, weight: 'bold' },
+                        position: { x: 'center', y: 'start' }
+                    }
+                },
+                entryLine: {
+                    type: 'line',
+                    xMin: 4,
+                    xMax: 9,
+                    yMin: sc.entry,
+                    yMax: sc.entry,
+                    borderColor: '#f59e0b',
+                    borderWidth: 2,
+                    borderDash: [6, 4],
+                    label: {
+                        display: true,
+                        content: sc.labelEntry,
+                        backgroundColor: 'rgba(245, 158, 11, 0.9)',
+                        color: '#000',
+                        font: { size: 11, weight: 'bold' },
+                        position: 'end'
+                    }
+                },
+                slLine: {
+                    type: 'line',
+                    xMin: 4,
+                    xMax: 9,
+                    yMin: sc.sl,
+                    yMax: sc.sl,
+                    borderColor: '#ef4444',
+                    borderWidth: 2,
+                    label: {
+                        display: true,
+                        content: sc.labelSL,
+                        backgroundColor: 'rgba(239, 68, 68, 0.9)',
+                        color: '#fff',
+                        font: { size: 11, weight: 'bold' },
+                        position: 'end'
+                    }
+                },
+                tpLine: {
+                    type: 'line',
+                    xMin: 4,
+                    xMax: 9,
+                    yMin: sc.tp,
+                    yMax: sc.tp,
+                    borderColor: '#10b981',
+                    borderWidth: 2,
+                    label: {
+                        display: true,
+                        content: sc.labelTP,
+                        backgroundColor: 'rgba(16, 185, 129, 0.9)',
+                        color: '#000',
+                        font: { size: 11, weight: 'bold' },
+                        position: 'end'
+                    }
+                }
+            };
+        }
+
+        const orbChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['09:00', '09:05', '09:10', '09:15 (Fin ORB)', '09:20 (Cassure)', '09:25', '09:30', '09:35', '09:40', '09:45'],
+                datasets: [{
+                    label: 'Évolution du Prix',
+                    data: scenarios.LONG.prices,
+                    borderColor: scenarios.LONG.lineColor,
+                    backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                    borderWidth: 3,
+                    pointRadius: 5,
+                    pointBackgroundColor: '#fff',
+                    tension: 0.25
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    annotation: {
+                        annotations: buildAnnotations(scenarios.LONG)
+                    }
+                },
+                scales: {
+                    y: {
+                        grid: { color: 'rgba(30, 41, 59, 0.6)' },
+                        suggestedMin: 90,
+                        suggestedMax: 135
+                    },
+                    x: {
+                        grid: { color: 'rgba(30, 41, 59, 0.3)' }
+                    }
+                }
+            }
+        });
+
+        function setScenario(type) {
+            const sc = scenarios[type];
+            
+            document.getElementById('btn-LONG').className = type === 'LONG' 
+                ? "px-4 py-2 text-xs font-semibold rounded-lg bg-emerald-600 text-white transition"
+                : "px-4 py-2 text-xs font-semibold rounded-lg text-slate-400 hover:text-white transition";
+            
+            document.getElementById('btn-SHORT').className = type === 'SHORT' 
+                ? "px-4 py-2 text-xs font-semibold rounded-lg bg-rose-600 text-white transition"
+                : "px-4 py-2 text-xs font-semibold rounded-lg text-slate-400 hover:text-white transition";
+
+            orbChart.data.datasets[0].data = sc.prices;
+            orbChart.data.datasets[0].borderColor = sc.lineColor;
+            orbChart.options.scales.y.suggestedMin = type === 'LONG' ? 90 : 88;
+            orbChart.options.scales.y.suggestedMax = type === 'LONG' ? 135 : 130;
+            orbChart.options.plugins.annotation.annotations = buildAnnotations(sc);
+            orbChart.update();
+        }
+    </script>
+</body>
+</html>
